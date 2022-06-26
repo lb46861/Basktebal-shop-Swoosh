@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import User, Role, Order, Team, Category, Brand, Product, OrderDetails, Size
+from .models import User, Role, Order, Team, Category, Brand, Product, OrderDetails, Size, ProductDetail
 from django.contrib.auth.admin import UserAdmin
 
 # Register your models here.
@@ -21,3 +21,4 @@ admin.site.register(Brand)
 admin.site.register(Product)
 admin.site.register(Size)
 admin.site.register(OrderDetails)
+admin.site.register(ProductDetail)

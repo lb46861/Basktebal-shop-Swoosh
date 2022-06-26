@@ -1,9 +1,8 @@
-from ctypes import sizeof
-from ipaddress import summarize_address_range
-from math import degrees
+
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 from phonenumber_field.modelfields import PhoneNumberField
+
 
 
 
@@ -16,7 +15,7 @@ class Role(models.Model):
 class User(AbstractUser):
     role_id = models.ForeignKey(Role, on_delete=models.CASCADE, null=True, default=1)
     address = models.CharField(max_length=50, null=True, blank=True)
-    phone = PhoneNumberField(null=True, blank=True, unique=True)
+    phone = PhoneNumberField(null=True, blank=True, unique=False)
 
 
 class Order(models.Model):
@@ -43,7 +42,7 @@ class Brand(models.Model):
         return self.name 
 
 class Size(models.Model):
-    size = models.CharField(max_length=5, null=True)
+    size = models.CharField(max_length=20, null=True)
     def __str__(self):
         return self.size
 
@@ -51,20 +50,26 @@ class Product(models.Model):
     team_id = models.ForeignKey(Team, on_delete=models.CASCADE, null=True)
     category_id = models.ForeignKey(Category, on_delete=models.CASCADE, null=True)
     brand_id = models.ForeignKey(Brand, on_delete=models.CASCADE, null=True)
-    size_id = models.ForeignKey(Size, on_delete=models.CASCADE, null=True)
-    quantity = models.IntegerField(null=True)
     name =  models.CharField(max_length=50, null=True)
     description = models.CharField(max_length=400, null=True, blank=True)
     color = models.CharField(max_length=12, null=True, blank=True)
     price= models.DecimalField(max_digits=10, decimal_places=2)
-    image = models.ImageField(upload_to='images/', height_field=None, width_field=None, max_length=100)
+    image = models.ImageField(null=True, blank=True)
 
     def __str__(self):
         return self.name
 
+class ProductDetail(models.Model):
+    product_id = models.ForeignKey(Product, on_delete=models.CASCADE, null=True)
+    size_id = models.ForeignKey(Size, on_delete=models.CASCADE, null=True)
+    quantity = models.IntegerField(null=True)
+
+    def __str__(self):
+        return f"{self.product_id} - {self.size_id}"
+
  
 class OrderDetails(models.Model):
-    product_id = models.ForeignKey(Product, on_delete=models.CASCADE, null=True)
+    product = models.ForeignKey(ProductDetail, on_delete=models.CASCADE, null=True)
     order_id = models.ForeignKey(Order, on_delete=models.CASCADE, null=True)
     quantity = models.IntegerField(null=True)
     discount = models.DecimalField(decimal_places=2, max_digits=10)

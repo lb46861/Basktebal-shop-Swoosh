@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+{% for product in products %}
+
+    <p>
+        {{product.name}}
+     
+    </p>
+    <img  src="{{ product.image.url }}" alt={{product.name}} width="500" height="500" >
+   
+
+{% endfor %}
+
+
+{% endblock %}
