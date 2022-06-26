@@ -19,5 +19,9 @@ def register(request):
 
 def productlist(request):
     products = Product.objects.all()
-
     return render(request, 'products/productlist.html', {'products': products})
+
+
+def productdetail(request, id):
+    product = Product.objects.get(id = id)
+    return render(request, 'products/productdetail.html', {'product': product})

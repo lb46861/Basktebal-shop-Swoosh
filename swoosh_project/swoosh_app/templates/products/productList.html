@@ -2,16 +2,32 @@
 {% block content %}
 
 
-{% for product in products %}
+<div class="container">
+    <div class="row">
 
-    <p>
-        {{product.name}}
-     
-    </p>
-    <img  src="{{ product.image.url }}" alt={{product.name}} width="500" height="500" >
-   
+        <h1>Enjoy our products: </h1>
 
-{% endfor %}
-
+        {% for product in products %}
+            <div class="col-sm-3">
+                <img  src="{{ product.image.url }}" class="img-fluid" alt={{product.name}}>
+            </div>
+            <div class="col-sm-5" style="margin-top:40px; padding-left:50px;">
+                <h3>{{product.name}}</h3>
+                <p>
+                Team: {{product.team_id}}<br>
+                Brand: {{product.brand_id}}<br>
+                Description: {{product.material}}<br>
+                Color: {{product.color}}<br>
+                </p>
+            </div>
+            
+            <div class="col-sm-4" style="padding-top:50px; padding-left:200px;">
+                <p>Price: {{product.price}}$<br>
+                <a href="{% url 'productdetail' product.id %}">Buy here</a></p>
+            </div>
+        {% endfor %}
+       
+    </div>
+</div>
 
 {% endblock %}
