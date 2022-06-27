@@ -1,7 +1,8 @@
+from hashlib import blake2b
 from django.http import HttpResponse
 from django.shortcuts import redirect, render
 from .forms import UserForm
-from .models import Product
+from .models import Product, ProductDetail
 # Create your views here.
  
 
@@ -24,4 +25,14 @@ def productlist(request):
 
 def productdetail(request, id):
     product = Product.objects.get(id = id)
-    return render(request, 'products/productdetail.html', {'product': product})
+    productdetail = ProductDetail.objects.filter(product_id = id)
+    available = len(productdetail.values_list('product_id', flat=True))
+    relatedProducts = Product.objects.filter(category_id = product.category_id).exclude(id=product.id)
+    
+    data = {
+        'product': product,
+        'productdetail' : productdetail,
+        'available': available,
+        'relatedProducts': relatedProducts,
+    }
+    return render(request, 'products/productdetail.html',data)

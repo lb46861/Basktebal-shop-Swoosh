@@ -73,15 +73,11 @@ class OrderDetails(models.Model):
     product = models.ForeignKey(ProductDetail, on_delete=models.CASCADE, null=True)
     order_id = models.ForeignKey(Order, on_delete=models.CASCADE, null=True)
     quantity = models.IntegerField(null=True)
-    discount = models.DecimalField(decimal_places=2, max_digits=10)
-    total_price = models.DecimalField(max_digits=10, decimal_places=2)
 
-    
     @property
     def get_total(self):
-        total = self.product_id.price * self.quantity
-        total_discount = total - self.discount * (total/100)
-        return total_discount
+        total = self.product.product_id.price * self.quantity
+        return total
 
     def __str__(self):
-        return f"{self.product_id} - {self.order_id} - {self.total_price}"
+        return f"{self.id} - {self.order_id}"
