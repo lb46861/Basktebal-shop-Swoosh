@@ -34,3 +34,21 @@ select {
     padding:5px;
 }
 
+.similiarProducts{
+    background: #333;
+    border-radius: 20px;
+    color:#fff;
+    padding: 40px 0 60px 0;
+    margin-bottom: 100px;
+}
+
+.spaceBetween{
+    margin-bottom: 60px;
+}
+
+.carousel-control-prev{
+    width: 7%;
+}
+.carousel-control-next{
+    width: 7%;
+}

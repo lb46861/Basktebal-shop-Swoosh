@@ -24,11 +24,20 @@ def productlist(request):
 
 
 def productdetail(request, id):
+
+    if request.method == 'POST':
+        productDetailID = request.POST['myproduct']
+        myProduct = ProductDetail.objects.get(id = productDetailID)
+        #print(myProduct)
+        option = request.POST['option']
+        if option == 'tocart':
+            pass
+
     product = Product.objects.get(id = id)
     productdetail = ProductDetail.objects.filter(product_id = id)
     available = len(productdetail.values_list('product_id', flat=True))
     relatedProducts = Product.objects.filter(category_id = product.category_id).exclude(id=product.id)
-    
+
     data = {
         'product': product,
         'productdetail' : productdetail,

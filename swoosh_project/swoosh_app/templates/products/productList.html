@@ -3,13 +3,14 @@
 
 
 <div class="container">
-    <div class="row">
+    
 
-        <h1>Enjoy our products: </h1>
+        <h1 style="margin-bottom: 80px;">Enjoy our products: </h1>
 
         {% for product in products %}
+        <div class="row spaceBetween">
             <div class="col-sm-3">
-                <img  src="{{ product.image.url }}" class="img-fluid" alt={{product.name}}>
+                <a href="{% url 'productdetail' product.id%}"><img  src="{{ product.image.url }}" class="img-fluid" alt={{product.name}}></a>
             </div>
             <div class="col-sm-5" style="margin-top:40px; padding-left:50px;">
                 <h3>{{product.name}}</h3>
@@ -25,9 +26,9 @@
                 <p>Price: {{product.price}}$<br>
                 <a href="{% url 'productdetail' product.id %}" style="font-size: 1.2rem;">Buy here</a></p>
             </div>
+        </div>
         {% endfor %}
        
-    </div>
 </div>
 
 {% endblock %}
