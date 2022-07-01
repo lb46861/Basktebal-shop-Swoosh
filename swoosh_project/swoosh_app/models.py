@@ -2,10 +2,7 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 from phonenumber_field.modelfields import PhoneNumberField
-
-
-
-
+import decimal
 
 class Role(models.Model):
     role = models.CharField(max_length=50, null=True)
@@ -22,11 +19,20 @@ class Order(models.Model):
     customer_id = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
     number = models.CharField(max_length=100, null=True, unique=True)
     date = models.DateTimeField(null=True, blank=True) 
+    status = models.CharField(max_length=100, null=True, blank=True)
+
+    @property
+    def get_total(self):
+        cartItems = self.orderdetails_set.all()
+        total = 0
+        for item in cartItems:
+            total = decimal.Decimal(total) + item.get_total
+        return total
 
     def __str__(self):
-        return f"Customer: {self.customer_id}; orderID: {self.number}; Date: {self.date}"
+        return f"Customer: {self.customer_id}; orderID: {self.id}; Date: {self.date}"
 
-class Team(models.Model):
+class Team(models.Model): 
     name =  models.CharField(max_length=50, null=True)
     def __str__(self):
         return self.name 
@@ -72,7 +78,7 @@ class ProductDetail(models.Model):
 class OrderDetails(models.Model):
     product = models.ForeignKey(ProductDetail, on_delete=models.CASCADE, null=True)
     order_id = models.ForeignKey(Order, on_delete=models.CASCADE, null=True)
-    quantity = models.IntegerField(null=True)
+    quantity = models.IntegerField(default = 0, null=True)
 
     @property
     def get_total(self):

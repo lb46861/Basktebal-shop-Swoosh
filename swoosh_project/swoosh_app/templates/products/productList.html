@@ -12,7 +12,7 @@
             <div class="col-sm-3">
                 <a href="{% url 'productdetail' product.id%}"><img  src="{{ product.image.url }}" class="img-fluid" alt={{product.name}}></a>
             </div>
-            <div class="col-sm-5" style="margin-top:40px; padding-left:50px;">
+            <div class="col-sm-7" style=" padding-left:50px;">
                 <h3>{{product.name}}</h3>
                 <p>
                 Team: {{product.team_id}}<br>
@@ -22,7 +22,7 @@
                 </p>
             </div>
             
-            <div class="col-sm-4" style="padding-top:50px; padding-left:200px;">
+            <div class="col-sm-2">
                 <p>Price: {{product.price}}$<br>
                 <a href="{% url 'productdetail' product.id %}" style="font-size: 1.2rem;">Buy here</a></p>
             </div>

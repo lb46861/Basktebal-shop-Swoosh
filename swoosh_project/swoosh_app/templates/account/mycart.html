@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+<div class="container">
+    
+
+        <h1 style="margin-bottom: 80px;">Your cart: </h1>
+
+        {% for item in cartItems %}
+            <div class="row spaceBetween">
+                <div class="col-sm-2">
+                    <a href="{% url 'productdetail' item.product.product_id.id %}"><img  src="{{ item.product.product_id.image.url }}" style="max-width: 70%;" alt={{item.product.product_id.name}}></a>
+                </div>
+                <div class="col-sm-4">
+                    <p style="font-weight: 600; margin-top: 80px;">
+                    {{item.product.product_id.name}} - Size:  {{item.product.size_id}}
+                    </p>
+                </div>
+                <div class="col-sm-4">
+                    <form method="post">
+                        {% csrf_token %}                        
+                            <p style="margin-top:70px">
+                            <button type="submit" name="option" value="add" class="btn btn-info">Add one</button>
+                            <button type="submit" name="option" value="removeOne" class="btn btn-warning">Remove one</button>
+                            <button type="submit" name="option" value="removeAll" class="btn btn-danger">Remove all</button>
+                            </p>
+                    </form>
+                </div>
+                
+                <div class="col-sm-2" style="padding-top:50px;">
+                    <p style="font-weight: 600; text-align: right;">
+                    Quantity: {{item.quantity}} -  Price: {{item.get_total}} $
+                    </p>
+                </div>        
+            </div>  
+        {% endfor %}
+        <div class="row">
+            <div class="col-sm-8"></div>
+            <div class="col-sm-4">
+                <p style="font-weight: 600; text-align: right;">Total price: {{order.get_total}} $</p>
+            </div>
+        </div> 
+       
+</div>
+
+{% endblock %}

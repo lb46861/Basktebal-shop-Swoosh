@@ -26,7 +26,7 @@ urlpatterns = [
     path('login/', LoginView.as_view(template_name='account/login.html'), name='login'),
     path('productlist/', views.productlist, name='productlist'),
     path('productdetail/<int:id>', views.productdetail, name='productdetail'),
-
+    path('cart/', views.cart, name='mycart'),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
