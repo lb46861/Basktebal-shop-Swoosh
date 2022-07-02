@@ -5,7 +5,15 @@
 <div class="container">
     
 
-        <h1 style="margin-bottom: 80px;">Your cart: </h1>
+        <h1 style="margin-bottom: 30px;">Your cart: </h1>
+       
+            {% if stock %}
+            <div id='success-alert' class="alert alert-warning alert-dismissible fade show" role="alert">
+                {{stock}}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            {% endif %}
+
 
         {% for item in cartItems %}
             <div class="row spaceBetween">
@@ -25,6 +33,7 @@
                             <button type="submit" name="option" value="add" class="btn btn-info">Add one</button>
                             <button type="submit" name="option" value="removeOne" class="btn btn-warning">Remove one</button>
                             <button type="submit" name="option" value="removeAll" class="btn btn-danger">Remove all</button>
+                            <br>
                             </p>
                     </form>
                 </div>

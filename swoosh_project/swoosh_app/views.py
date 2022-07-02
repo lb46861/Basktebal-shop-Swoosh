@@ -34,8 +34,37 @@ def addToCart(request, myProduct):
         itemDetail.save()
         myProduct.quantity -= 1
         myProduct.save()
+        return 'Product addedd successfully!'
     else:
         return 'No more products left in stock!'
+
+
+def removeOne(request, myProduct):
+    customer = request.user
+    order = Order.objects.get(customer_id = customer, status='cart')
+    itemDetail = OrderDetails.objects.get(order_id=order, product=myProduct)
+    if itemDetail.quantity == 1:
+        itemDetail.delete()
+    else:
+        itemDetail.quantity -= 1
+        itemDetail.save()
+    myProduct.quantity += 1
+    myProduct.save()
+    return 'Product removed successfully!'
+
+
+
+def removeAll(request, myProduct):
+    customer = request.user
+    order = Order.objects.get(customer_id = customer, status='cart')
+    itemDetail = OrderDetails.objects.get(order_id=order, product=myProduct)
+    while itemDetail.quantity > 0:
+        itemDetail.quantity -= 1
+        myProduct.quantity += 1
+    itemDetail.delete()
+    myProduct.save()
+    return 'Products removed successfully!'
+
 
 
 def productdetail(request, id):
@@ -52,60 +81,37 @@ def productdetail(request, id):
     product = Product.objects.get(id = id)
     productdetail = ProductDetail.objects.filter(product_id = id)
     #available = len(productdetail.values_list('product_id', flat=True))
-    relatedProducts = Product.objects.filter(category_id = product.category_id).exclude(id=product.id)
+    similiarProducts = Product.objects.filter(category_id = product.category_id).exclude(id=product.id)
 
     data = {
         'product': product,
         'productdetail' : productdetail,
         #'available': available,
-        'relatedProducts': relatedProducts,
+        'similiarProducts': similiarProducts,
     }
     return render(request, 'products/productdetail.html',data)
 
 
-def removeOne(request, myProduct):
-    customer = request.user
-    order = Order.objects.get(customer_id = customer, status='cart')
-    itemDetail = OrderDetails.objects.get(order_id=order, product=myProduct)
-    if itemDetail.quantity == 1:
-        itemDetail.delete()
-    else:
-        itemDetail.quantity -= 1
-        itemDetail.save()
-    myProduct.quantity += 1
-    myProduct.save()
-
-
-def removeAll(request, myProduct):
-    customer = request.user
-    order = Order.objects.get(customer_id = customer, status='cart')
-    itemDetail = OrderDetails.objects.get(order_id=order, product=myProduct)
-    while itemDetail.quantity > 0:
-        itemDetail.quantity -= 1
-        myProduct.quantity += 1
-    itemDetail.delete()
-    myProduct.save()
-
-
-
 def cart(request):
+    stock = ''
     if request.method == 'POST':
         productDetailID = request.POST['myproduct']
         myProduct = ProductDetail.objects.get(id = productDetailID)
         option = request.POST['option']
         if option == 'add':
-            addToCart(request, myProduct)
+            stock = addToCart(request, myProduct)
         elif option == 'removeOne':
-            removeOne(request, myProduct)
+            stock = removeOne(request, myProduct)
         elif option == 'removeAll':
-            removeAll(request, myProduct)
+            stock = removeAll(request, myProduct)
 
     customer = request.user
     order, created = Order.objects.get_or_create(customer_id = customer, status='cart')
     cartItems = order.orderdetails_set.all()
     data = {
         'cartItems': cartItems,
-        'order': order
+        'order': order,
+        'stock': stock
     }
 
     return render(request, 'account/mycart.html', data)

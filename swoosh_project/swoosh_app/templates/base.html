@@ -2,19 +2,15 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
+    <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans&display=swap" rel="stylesheet">
-    
-    
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans&display=swap" rel="stylesheet">  
     <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}" >  
 	  <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}"/> 
-   
-     
-
+  
     <title>Swoosh shop</title>
   </head>
   <body>
@@ -22,6 +18,21 @@
     {% block content %} {% endblock %}
     
 
-    <script src="{% static 'js/bootstrap.min.js' %}"></script>  
+    
+
+    
+    
+    <script type="text/javascript" src="{% static 'js/jquery-3.6.0.min.js' %}"></script> 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script  type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>  
+
+
+    <script>
+
+    $("#success-alert").fadeTo(2000, 250).slideUp(250, function(){
+        $("#success-alert").slideUp(250);
+    });
+    </script>
   </body>
 </html>

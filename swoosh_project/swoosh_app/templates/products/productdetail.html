@@ -51,34 +51,34 @@
 
 
 
-    {% if relatedProducts %}
+    {% if similiarProducts %}
         <div class="similiarProducts" style="margin-top: 100px;">
         <div class="row">
             <h3 style="text-align: center; font-weight: bold; margin: 0;">You may also like: </h3>
             <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner">   
-                    {% for related in relatedProducts %}
+                    {% for product in similiarProducts %}
                         {% if not forloop.first %}
                             <div class="carousel-item">  
                                 <div class="row">
                                     <div class="col-sm-1"></div>
                                     <div class="col-sm-2">
-                                        <a href="{% url 'productdetail' related.id %}"><img src="{{related.image.url}}" class="d-block w-100 img-fluid" alt="{{related.name}}" style="border-radius:50%; margin: 40px 0 0 0; "></a>
+                                        <a href="{% url 'productdetail' product.id %}"><img src="{{product.image.url}}" class="d-block w-100 img-fluid" alt="{{product.name}}" style="border-radius:50%; margin: 40px 0 0 0; "></a>
                                     </div>
                                     
                                     <div class="col-sm-5" style="margin-top:40px; padding-left:50px;">
-                                        <h3 style="margin: 0;padding:0;">{{related.name}}</h3>
+                                        <h3 style="margin: 0;padding:0;">{{product.name}}</h3>
                                         <p>
-                                        Team: {{related.team_id}}<br>
-                                        Brand: {{related.brand_id}}<br>
-                                        Description: {{related.material}}<br>
-                                        Color: {{related.color}}<br>
+                                        Team: {{product.team_id}}<br>
+                                        Brand: {{product.brand_id}}<br>
+                                        Description: {{product.material}}<br>
+                                        Color: {{product.color}}<br>
                                         </p>
                                     </div>
                                     <div class="col-sm-1"></div>
                                     <div class="col-sm-2" style="padding-top:30px">
-                                        <p>Price: {{related.price}}$<br>
-                                        <a href="{% url 'productdetail' related.id %}" style="font-size: 1.2rem;" class="link-light">Buy here</a></p>
+                                        <p>Price: {{product.price}}$<br>
+                                        <a href="{% url 'productdetail' product.id %}" style="font-size: 1.2rem;" class="link-light">Buy here</a></p>
                                     </div>
                                 </div>                                      
                             </div>
@@ -88,22 +88,22 @@
                                 <div class="row">
                                     <div class="col-sm-1"></div>
                                     <div class="col-sm-2">
-                                        <a href="{% url 'productdetail' related.id %}"><img src="{{related.image.url}}" class="d-block w-100 img-fluid" alt="{{related.name}}" style="border-radius: 50%; margin: 40px 0 0 0;"></a>
+                                        <a href="{% url 'productdetail' product.id %}"><img src="{{product.image.url}}" class="d-block w-100 img-fluid" alt="{{product.name}}" style="border-radius: 50%; margin: 40px 0 0 0;"></a>
                                     </div>
                                     
                                     <div class="col-sm-5" style="margin-top:40px; padding-left:50px;">
-                                        <h3 style="margin: 0;padding:0;">{{related.name}}</h3>
+                                        <h3 style="margin: 0;padding:0;">{{product.name}}</h3>
                                         <p>
-                                        Team: {{related.team_id}}<br>
-                                        Brand: {{related.brand_id}}<br>
-                                        Description: {{related.material}}<br>
-                                        Color: {{related.color}}<br>
+                                        Team: {{product.team_id}}<br>
+                                        Brand: {{product.brand_id}}<br>
+                                        Description: {{product.material}}<br>
+                                        Color: {{product.color}}<br>
                                         </p>
                                     </div>
                                     <div class="col-sm-1"></div>
                                     <div class="col-sm-2" style="padding-top:30px;">
-                                        <p>Price: {{related.price}}$<br>
-                                        <a href="{% url 'productdetail' related.id %}" style="font-size: 1.2rem;" class="link-light">Buy here</a></p>
+                                        <p>Price: {{product.price}}$<br>
+                                        <a href="{% url 'productdetail' product.id %}" style="font-size: 1.2rem;" class="link-light">Buy here</a></p>
                                     </div>
                                 </div>                 
                             </div>
