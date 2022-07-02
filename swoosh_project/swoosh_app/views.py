@@ -4,6 +4,8 @@ from django.shortcuts import redirect, render
 from .forms import UserForm
 from .models import Product, ProductDetail, Order, OrderDetails
 import uuid, random
+from django.contrib.auth.decorators import login_required
+
 # Create your views here.
  
 
@@ -23,7 +25,7 @@ def productlist(request):
     products = Product.objects.all()
     return render(request, 'products/productlist.html', {'products': products})
 
-
+@login_required(login_url='login')
 def addToCart(request, myProduct):
     #number = uuid.uuid1(random.randint(0, 281474976710655))
     customer = request.user
@@ -66,32 +68,41 @@ def removeAll(request, myProduct):
     return 'Products removed successfully!'
 
 
+def isAvailable(productdetail):
+    available = 0
+    for prod in productdetail:
+        if prod.quantity > 0:
+            available += 1
+            break
+    return available
 
 def productdetail(request, id):
+    stock = ''
     if request.method == 'POST':
         productDetailID = request.POST['myproduct']
         myProduct = ProductDetail.objects.get(id = productDetailID)
         option = request.POST['option']
         if option == 'tocart':
-            addToCart(request, myProduct)
+            stock = addToCart(request, myProduct)
         elif option == 'buy':
             addToCart(request, myProduct)
             return redirect('mycart')
 
     product = Product.objects.get(id = id)
     productdetail = ProductDetail.objects.filter(product_id = id)
-    #available = len(productdetail.values_list('product_id', flat=True))
+    available = isAvailable(productdetail)
     similiarProducts = Product.objects.filter(category_id = product.category_id).exclude(id=product.id)
 
     data = {
         'product': product,
         'productdetail' : productdetail,
-        #'available': available,
+        'available': available,
         'similiarProducts': similiarProducts,
+        'stock': stock
     }
     return render(request, 'products/productdetail.html',data)
 
-
+@login_required(login_url='login')
 def cart(request):
     stock = ''
     if request.method == 'POST':
@@ -115,3 +126,4 @@ def cart(request):
     }
 
     return render(request, 'account/mycart.html', data)
+

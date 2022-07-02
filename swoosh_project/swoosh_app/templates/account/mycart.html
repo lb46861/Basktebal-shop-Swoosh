@@ -5,7 +5,7 @@
 <div class="container">
     
 
-        <h1 style="margin-bottom: 30px;">Your cart: </h1>
+        <h1 style="margin-bottom: 30px; margin-top: 50px;">Your cart: </h1>
        
             {% if stock %}
             <div id='success-alert' class="alert alert-warning alert-dismissible fade show" role="alert">
@@ -20,25 +20,25 @@
                 <div class="col-sm-2">
                     <a href="{% url 'productdetail' item.product.product_id.id %}"><img  src="{{ item.product.product_id.image.url }}" style="max-width: 70%;" alt={{item.product.product_id.name}}></a>
                 </div>
-                <div class="col-sm-4">
-                    <p style="font-weight: 600; margin-top: 80px;">
-                    {{item.product.product_id.name}} - Size:  {{item.product.size_id}}
+                <div class="col-sm-3">
+                    <p style="font-weight: 600; margin-top:15px;">
+                    {{item.product.product_id.name}}<br><br>Size:  {{item.product.size_id}}
                     </p>
                 </div>
                 <div class="col-sm-4">
                     <form method="post">
                         {% csrf_token %}                        
-                            <p style="margin-top:70px">
+                            <p style="margin-top:50px; text-align: left;">
                             <input type='hidden' name="myproduct" value="{{item.product.id}}" />
-                            <button type="submit" name="option" value="add" class="btn btn-info">Add one</button>
-                            <button type="submit" name="option" value="removeOne" class="btn btn-warning">Remove one</button>
-                            <button type="submit" name="option" value="removeAll" class="btn btn-danger">Remove all</button>
+                            <button type="submit" name="option" value="add" class="btn btn-secondary">Add</button>
+                            <button type="submit" name="option" value="removeOne" class="btn btn-dark">Remove</button>
+                            <button type="submit" name="option" value="removeAll" class="btn btn-danger" style="text-align: right;">Remove all</button>
                             <br>
                             </p>
                     </form>
                 </div>
                 
-                <div class="col-sm-2" style="padding-top:50px;">
+                <div class="col-sm-3" style="margin-top:60px;">
                     <p style="font-weight: 600; text-align: right;">
                     Quantity: {{item.quantity}} -  Price: {{item.get_total}} $
                     </p>

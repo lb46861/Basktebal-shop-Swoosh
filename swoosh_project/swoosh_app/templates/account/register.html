@@ -2,7 +2,7 @@
 {% block content %}
 
 
-<form method="post">
+<form method="post"  style="padding: 20px;">
   {% csrf_token %}
   <h2>Registration:</h2>
     {% for field in form %}
@@ -24,7 +24,7 @@
       </p>
       {% endfor %}
       {% csrf_token %}
-      <button type="submit" class="btn btn-primary" style="margin: 0 0 10px 10px;">Create User</button>
+      <button type="submit" class="btn btn-dark" style="margin: 0 0 10px 10px;">Create User</button>
     </form>
     
 

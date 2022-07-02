@@ -6,6 +6,14 @@
     <div class="row" style="margin-top:50px;">
 
         <h1 style="margin-bottom: 80px;">Buy it now</h1>
+
+        {% if stock %}
+        <div id='success-alert' class="alert alert-warning alert-dismissible fade show" role="alert">
+            {{stock}}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        {% endif %}
+        
         <div class="col-sm-4">
             <img  src="{{ product.image.url }}" class="img-fluid" alt={{product.name}}>
         </div>
@@ -20,25 +28,25 @@
             </p>
 
             <div class="form-group">
-                {% if productdetail %}
-
-                        <form method="post">
-                        {% csrf_token %}
-                            <p style="margin: 0;">
-                            <select name='myproduct'>
-                                {% for product in productdetail %}
-                                    {% if product.quantity > 0 %}
-                                        <option value='{{product.id}}'>{{product.size_id}} {% if product.quantity == 1 %} - Last one left {% endif %}</option>
-                                    {% endif %}
-                                {% endfor %}                      
-                            </select>
-                            </p>
-                            <p style="margin: 0;">Price {{product.price}}$</p>
-                            <p>
-                            <button type="submit" name="option" value="tocart" class="btn btn-info">Add to cart</button>&nbsp;
-                            <button type="submit" name="option" value="buy" class="btn btn-warning">Buy now</button>
-                            </p>
-                        </form>
+                {% if available > 0 %}
+                   
+                            <form method="post">
+                            {% csrf_token %}
+                                <p style="margin: 0;">
+                                <select name='myproduct'>
+                                    {% for product in productdetail %}
+                                        {% if product.quantity > 0 %}
+                                            <option value='{{product.id}}'>{{product.size_id}} {% if product.quantity == 1 %} - Last one left {% endif %}</option>
+                                        {% endif %}
+                                    {% endfor %}                      
+                                </select>
+                                </p>
+                                <p style="margin: 0;">Price {{product.price}}$</p>
+                                <p>
+                                <button type="submit" name="option" value="tocart" class="btn btn-info">Add to cart</button>&nbsp;
+                                <button type="submit" name="option" value="buy" class="btn btn-warning">Buy now</button>
+                                </p>
+                            </form>
                     
                 {% else %}
                     <p class="alert alert-danger" style="width: 150px;">Out of stock !</p>
