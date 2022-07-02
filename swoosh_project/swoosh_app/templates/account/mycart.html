@@ -21,6 +21,7 @@
                     <form method="post">
                         {% csrf_token %}                        
                             <p style="margin-top:70px">
+                            <input type='hidden' name="myproduct" value="{{item.product.id}}" />
                             <button type="submit" name="option" value="add" class="btn btn-info">Add one</button>
                             <button type="submit" name="option" value="removeOne" class="btn btn-warning">Remove one</button>
                             <button type="submit" name="option" value="removeAll" class="btn btn-danger">Remove all</button>
