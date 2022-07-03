@@ -1,0 +1,52 @@
+{% extends 'base.html' %} 
+{% block content %}
+
+
+<div class="container" style="margin: 50px auto;">
+
+    <h2>Hello {{request.user|capfirst}}, edit your profile here!</h2>
+
+    {% if messages %}
+        {% for message in messages %}
+            <div id='success-alert' class="alert alert-success alert-dismissible fade show" role="alert">
+                {{message}}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+
+        {% endfor %}     
+    {% endif %}
+
+    {% if msg %}
+        <div id='success-alert' class="alert alert-success alert-dismissible fade show" role="alert">
+            {{msg}}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    {% endif %}
+
+
+    <div class="form-content">
+        <form method="post">
+            {% csrf_token %}
+                {% for field in form %}
+                <p>
+                    {{ field.label_tag }}<br>
+                    {{ field }}
+                            
+                    {% for error in field.errors %}
+                        <div class="alert alert-danger">
+                            <p style="color:rgb(196, 79, 44)"><strong>{{ error }}</strong></p>
+                        </div>
+                    {% endfor %}                           
+                </p>
+                {% endfor %}
+
+            <p>
+            <button type="submit" name="action" value="save" class="btn btn-dark btn-m">Save Changes</button> &nbsp;
+            <button type="submit" name="action" value="reset" class="btn btn-dark btn-m">Reset</button>
+            </p>
+        </form>
+
+        <p><a href="{% url 'changepassword' %}">Change Password</a></p>
+    </div>
+</div>
+{% endblock %}

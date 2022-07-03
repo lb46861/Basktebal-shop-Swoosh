@@ -29,6 +29,8 @@ urlpatterns = [
     path('productlist/', views.productlist, name='productlist'),
     path('productdetail/<int:id>', views.productdetail, name='productdetail'),
     path('cart/', views.cart, name='mycart'),
+    path('myaccount/', views.profile, name='myaccount'),
+    path('changepassword/', views.ChangePasswordView.as_view(), name='changepassword'),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

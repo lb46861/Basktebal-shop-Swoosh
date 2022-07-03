@@ -26,12 +26,14 @@ input[type=password],
 input[type=email],
 input[type=select],
 input[type=tel] {
-    width: 200px;
     padding: 5px 5px;
+    border: 1px solid #aaa;
+    border-radius: 5px;
 }
 select {
-    width: 180px;
     padding:5px;
+    border: 1px solid #aaa;
+    border-radius: 5px;
 }
 
 .similiarProducts{
@@ -53,3 +55,6 @@ select {
     width: 7%;
 }
 
+.changeinput{
+    width: 100%;
+}

@@ -1,10 +1,14 @@
 from hashlib import blake2b
 from django.http import HttpResponse
 from django.shortcuts import redirect, render
-from .forms import UserForm
+from .forms import UserForm, UpdateUserForm
 from .models import Product, ProductDetail, Order, OrderDetails
 import uuid, random
 from django.contrib.auth.decorators import login_required
+from django.urls import reverse_lazy
+from django.contrib.auth.views import PasswordChangeView
+from django.contrib.messages.views import SuccessMessageMixin
+
 
 # Create your views here.
  
@@ -127,3 +131,34 @@ def cart(request):
 
     return render(request, 'account/mycart.html', data)
 
+
+
+@login_required(login_url='login')
+def profile(request):
+    msg = ''
+    if request.method == 'POST':
+        action = request.POST['action']
+        if action == 'save':
+            form = UpdateUserForm(request.POST, instance=request.user)
+            if form.is_valid():
+                form.save()
+                msg = 'Your profile is updated successfully!'
+
+        elif action == 'reset':
+            form = UpdateUserForm(instance=request.user)
+
+    else:
+        form = UpdateUserForm(instance=request.user)
+    data = {
+        'msg': msg,
+        'form': form
+    }
+
+    return render(request, 'account/myaccount.html', data)
+
+
+
+class ChangePasswordView(SuccessMessageMixin, PasswordChangeView):
+    template_name = 'account/change_password.html'
+    success_message = "Successfully Changed Your Password!"
+    success_url = reverse_lazy('myaccount')
