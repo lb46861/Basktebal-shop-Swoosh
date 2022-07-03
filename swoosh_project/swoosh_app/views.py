@@ -82,7 +82,7 @@ def isAvailable(productdetail):
 
 def productdetail(request, id):
     stock = ''
-    if request.method == 'POST':
+    if request.method == 'POST' and request.user.is_authenticated:
         productDetailID = request.POST['myproduct']
         myProduct = ProductDetail.objects.get(id = productDetailID)
         option = request.POST['option']
@@ -91,6 +91,8 @@ def productdetail(request, id):
         elif option == 'buy':
             addToCart(request, myProduct)
             return redirect('mycart')
+    elif request.method == 'POST':
+        return redirect('login')
 
     product = Product.objects.get(id = id)
     productdetail = ProductDetail.objects.filter(product_id = id)
