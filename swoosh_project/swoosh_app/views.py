@@ -1,4 +1,5 @@
 from hashlib import blake2b
+import json
 from django.http import HttpResponse
 from django.shortcuts import redirect, render
 from .forms import UserForm, UpdateUserForm
@@ -8,6 +9,12 @@ from django.contrib.auth.decorators import login_required
 from django.urls import reverse_lazy
 from django.contrib.auth.views import PasswordChangeView
 from django.contrib.messages.views import SuccessMessageMixin
+from django.views import View
+import stripe
+from django.conf import settings
+from django.http import JsonResponse
+
+stripe.api_key = settings.STRIPE_SECRET_KEY
 
 
 # Create your views here.
@@ -164,3 +171,32 @@ class ChangePasswordView(SuccessMessageMixin, PasswordChangeView):
     template_name = 'account/change_password.html'
     success_message = "Successfully Changed Your Password!"
     success_url = reverse_lazy('myaccount')
+
+
+
+#stripe.api_key = 'sk_test_51LHS9iFIQyWlV790kri9SC5EwEIHWxL9TsGy32t60vGC6Cqvuf3UXghpwswKEQZ9u9bIBaVMKwKMT3xjxoP9MaIU008ucF3nTh'
+
+class CreateCheckoutSessionView(View):
+    def post(self, request, *args, **kwargs):
+        customer = request.user
+        order =  order, created = Order.objects.get_or_create(customer_id= customer, status='cart')
+        YOUR_DOMAIN = 'http://127.0.0.1:8000'
+        checkout_session = stripe.checkout.Session.create(
+            line_items=[
+                {
+                    'price_data': {
+                        'currency': 'usd',
+                        'unit_amount' : order.get_total,
+                        'product_data': {
+                            'name': f"Order ID: {order.id}",
+                        },
+                    },
+                    'quantity': 1,
+                },
+            ],
+            mode='payment',
+            success_url = YOUR_DOMAIN + '/success/',
+            cancel_url = YOUR_DOMAIN + '/cancel/'
+        )
+
+        return redirect(checkout_session.url, code=303)

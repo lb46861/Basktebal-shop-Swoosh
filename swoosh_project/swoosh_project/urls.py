@@ -31,6 +31,7 @@ urlpatterns = [
     path('cart/', views.cart, name='mycart'),
     path('myaccount/', views.profile, name='myaccount'),
     path('changepassword/', views.ChangePasswordView.as_view(), name='changepassword'),
+    path('create-checkout-session', views.CreateCheckoutSessionView.as_view(), name='create-checkout-session')
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

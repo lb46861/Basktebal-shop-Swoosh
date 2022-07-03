@@ -27,7 +27,7 @@ class Order(models.Model):
         total = 0
         for item in cartItems:
             total = decimal.Decimal(total) + item.get_total
-        return total
+        return int(total * 100)
 
     def __str__(self):
         return f"Customer: {self.customer_id}; orderID: {self.id}; Date: {self.date}"

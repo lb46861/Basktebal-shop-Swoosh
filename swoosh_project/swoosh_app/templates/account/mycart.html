@@ -32,7 +32,7 @@
                             <input type='hidden' name="myproduct" value="{{item.product.id}}" />
                             <button type="submit" name="option" value="add" class="btn btn-secondary">Add</button>
                             <button type="submit" name="option" value="removeOne" class="btn btn-dark">Remove</button>
-                            <button type="submit" name="option" value="removeAll" class="btn btn-danger" style="text-align: right;">Remove all</button>
+                            <button type="submit" name="option" value="removeAll" class="btn btn-danger">Remove all</button>
                             <br>
                             </p>
                     </form>
@@ -45,10 +45,16 @@
                 </div>        
             </div>  
         {% endfor %}
-        <div class="row">
+        <div class="row" style="border-top: 1px solid #333;">
             <div class="col-sm-8"></div>
             <div class="col-sm-4">
-                <p style="font-weight: 600; text-align: right;">Total price: {{order.get_total}} $</p>
+                <p style="font-weight: 600; text-align: right; padding-top: 40px;">Total price: {{order.get_total}} $
+                    <br><br>
+                <form action="/create-checkout-session" method="post">
+                    {% csrf_token %}                          <p style="text-align: right;"><button type="submit" id="checkout-button" class="btn btn-dark">Checkout</button></p>
+                        
+                </form>
+            </p>
             </div>
         </div> 
        
