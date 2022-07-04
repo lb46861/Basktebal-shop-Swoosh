@@ -8,7 +8,7 @@
         <h1 style="margin-bottom: 80px; margin-top: 50px;">Enjoy our products: </h1>
 
         {% for product in products %}
-        <div class="row spaceBetween">
+        <div class="row" style="margin-bottom: 100px;">
             <div class="col-sm-3">
                 <a href="{% url 'productdetail' product.id%}"><img  src="{{ product.image.url }}" class="img-fluid" alt={{product.name}}></a>
             </div>

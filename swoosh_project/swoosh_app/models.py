@@ -21,8 +21,17 @@ class Order(models.Model):
     date = models.DateTimeField(null=True, blank=True) 
     status = models.CharField(max_length=100, null=True, blank=True)
 
+
     @property
     def get_total(self):
+        cartItems = self.orderdetails_set.all()
+        total = 0
+        for item in cartItems:
+            total = decimal.Decimal(total) + item.get_total
+        return total
+
+    @property
+    def get_total_stripe(self):
         cartItems = self.orderdetails_set.all()
         total = 0
         for item in cartItems:

@@ -22,6 +22,7 @@ from django.conf.urls.static import static
 
 
 urlpatterns = [
+    path('', views.productlist),
     path('admin/', admin.site.urls),
     path('register/', views.register, name='register'),
     path('login/', LoginView.as_view(template_name='account/login.html'), name='login'),
@@ -31,7 +32,8 @@ urlpatterns = [
     path('cart/', views.cart, name='mycart'),
     path('myaccount/', views.profile, name='myaccount'),
     path('changepassword/', views.ChangePasswordView.as_view(), name='changepassword'),
-    path('create-checkout-session', views.CreateCheckoutSessionView.as_view(), name='create-checkout-session')
+    path('create-checkout-session', views.CreateCheckoutSessionView.as_view(), name='create-checkout-session'),
+    path('success/<str:session_id>/', views.success_payment, name='success'),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

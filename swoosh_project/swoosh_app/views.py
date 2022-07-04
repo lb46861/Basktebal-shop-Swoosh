@@ -1,5 +1,7 @@
+import datetime
 from hashlib import blake2b
 import json
+from xmlrpc.client import DateTime
 from django.http import HttpResponse
 from django.shortcuts import redirect, render
 from .forms import UserForm, UpdateUserForm
@@ -11,14 +13,10 @@ from django.contrib.auth.views import PasswordChangeView
 from django.contrib.messages.views import SuccessMessageMixin
 from django.views import View
 import stripe
+from django.utils import timezone
 from django.conf import settings
-from django.http import JsonResponse
-
 stripe.api_key = settings.STRIPE_SECRET_KEY
 
-
-# Create your views here.
- 
 
 def register(request):   
     if request.method == 'POST':
@@ -38,7 +36,6 @@ def productlist(request):
 
 @login_required(login_url='login')
 def addToCart(request, myProduct):
-    #number = uuid.uuid1(random.randint(0, 281474976710655))
     customer = request.user
     order, created = Order.objects.get_or_create(customer_id = customer, status='cart')
     itemDetail, created = OrderDetails.objects.get_or_create(order_id=order, product=myProduct)
@@ -173,20 +170,38 @@ class ChangePasswordView(SuccessMessageMixin, PasswordChangeView):
     success_url = reverse_lazy('myaccount')
 
 
+mycheckout_session = ''
+def success_payment(request, session_id):
+    if(mycheckout_session == session_id):
+        customer = request.user
+        order = Order.objects.get(customer_id= customer, status='cart')
+        number = uuid.uuid1(random.randint(0, 281474976710655))
+        order.number = number
+        order.status = 'payed'
+        order.date = timezone.now()
+        order.save()
+        data =  {
+            'order': order,
+            'cartItems': order.orderdetails_set.all()
+        }
+        return render(request, 'account/success_payment.html', data)
+    else:
+        return HttpResponse(status = 404)
+
 
 #stripe.api_key = 'sk_test_51LHS9iFIQyWlV790kri9SC5EwEIHWxL9TsGy32t60vGC6Cqvuf3UXghpwswKEQZ9u9bIBaVMKwKMT3xjxoP9MaIU008ucF3nTh'
 
 class CreateCheckoutSessionView(View):
     def post(self, request, *args, **kwargs):
         customer = request.user
-        order =  order, created = Order.objects.get_or_create(customer_id= customer, status='cart')
+        order =  Order.objects.get(customer_id= customer, status='cart')
         YOUR_DOMAIN = 'http://127.0.0.1:8000'
         checkout_session = stripe.checkout.Session.create(
             line_items=[
                 {
                     'price_data': {
                         'currency': 'usd',
-                        'unit_amount' : order.get_total,
+                        'unit_amount' : order.get_total_stripe,
                         'product_data': {
                             'name': f"Order ID: {order.id}",
                         },
@@ -194,9 +209,13 @@ class CreateCheckoutSessionView(View):
                     'quantity': 1,
                 },
             ],
+            metadata = {
+                'order_id': order.id
+            },
             mode='payment',
-            success_url = YOUR_DOMAIN + '/success/',
-            cancel_url = YOUR_DOMAIN + '/cancel/'
+            success_url= YOUR_DOMAIN + "/success/{CHECKOUT_SESSION_ID}/",
+            cancel_url = YOUR_DOMAIN + '/cart/',
         )
-
+        global mycheckout_session
+        mycheckout_session = checkout_session.id
         return redirect(checkout_session.url, code=303)
