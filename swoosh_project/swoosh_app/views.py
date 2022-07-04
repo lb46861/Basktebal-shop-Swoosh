@@ -189,7 +189,6 @@ def success_payment(request, session_id):
         return HttpResponse(status = 404)
 
 
-#stripe.api_key = 'sk_test_51LHS9iFIQyWlV790kri9SC5EwEIHWxL9TsGy32t60vGC6Cqvuf3UXghpwswKEQZ9u9bIBaVMKwKMT3xjxoP9MaIU008ucF3nTh'
 
 class CreateCheckoutSessionView(View):
     def post(self, request, *args, **kwargs):
