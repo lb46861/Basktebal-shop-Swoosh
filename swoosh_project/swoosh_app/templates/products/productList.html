@@ -5,9 +5,9 @@
 <div class="container">
     
 
-        <h1 style="margin-bottom: 80px; margin-top: 50px;">Enjoy our products: </h1>
+        <h1 style="margin-bottom: 50px; margin-top: 50px;">Enjoy our products: </h1>
     <div class="row">
-        <div class="col-sm-12" style="margin-bottom: 80px;">
+        <div class="col-sm-12" style="margin-bottom: 50px;">
             <form method="get">
                 {% csrf_token %}
                 Category: {{ myFilter.form.category_id }} &nbsp;
@@ -20,8 +20,9 @@
     </div>
 
 
-        {% for product in products %}
-        <div class="row" style="margin-bottom: 100px;">
+        {% for product in products_pages %}
+        <hr>
+        <div class="row" style="margin-bottom: 60px; padding-top: 50px;">
             <div class="col-sm-3">
                 <a href="{% url 'productdetail' product.id%}"><img  src="{{ product.image.url }}" class="img-fluid" alt={{product.name}}></a>
             </div>
@@ -40,7 +41,21 @@
                 <a href="{% url 'productdetail' product.id %}" style="font-size: 1.2rem;">Buy here</a></p>
             </div>
         </div>
+  
         {% endfor %}
+
+       {% if products_pages.has_previous %}
+            <a href="?page=1">&laquo First</a>
+            <a href="?page={{products_pages.previous_page_number}}">Previous</a>
+       {% endif %}
+       
+       Page {{products_pages.number}} of {{products_pages.paginator.num_pages}}
+
+       {% if products_pages.has_next %}
+            <a href="?page={{ products_pages.next_page_number }}">Next</a>
+            <a href="?page={{products_pages.paginator.num_pages}}">Last &raquo</a>
+       {% endif %}
+
        
 </div>
 

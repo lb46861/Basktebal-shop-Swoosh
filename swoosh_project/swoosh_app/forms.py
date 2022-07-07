@@ -5,9 +5,9 @@ from django.contrib.auth.forms import UserCreationForm
 class UserForm(UserCreationForm):
   class Meta:
     model = User
-    fields = ['username', 'first_name', 'last_name', 'email', 'address', 'phone', 'password1', 'password2']
+    fields = ['username', 'first_name', 'last_name', 'email', 'address', 'phone', 'city', 'country', 'postal_code', 'password1', 'password2']
 
 class UpdateUserForm(ModelForm):
     class Meta:
         model = User
-        fields = ['username', 'first_name', 'last_name', 'email', 'address', 'phone']
+        fields = ['username', 'first_name', 'last_name', 'email', 'address', 'phone', 'city', 'country', 'postal_code']

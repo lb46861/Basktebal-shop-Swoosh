@@ -35,10 +35,14 @@
                     
                 {% endfor %}
 
-                <p><strong>Total order price: {{order.get_total}} $<br><br>
-                           Order status: {{order.status}}</strong>
+                <p style="letter-spacing: 1px;"><strong>Total order price: {{order.get_total}} $<br>
+                           Order status:</strong> {{order.status}}<br>
+                           <strong> Address to deliver: </strong>{{request.user.address}}<br>
+                           <strong> City: </strong>{{request.user.city}}<br>
+                           <strong> Country: </strong>{{request.user.country}}<br>
+                           <strong> Postal code: </strong>{{request.user.postal_code}}<br>
                 </p>
-            
+
         {% else %}
                 <h3 style="margin-top: 50px;">You have no permission for this site.</h3>
         {% endif %}

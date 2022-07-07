@@ -13,6 +13,9 @@ class User(AbstractUser):
     role_id = models.ForeignKey(Role, on_delete=models.CASCADE, null=True, default=1)
     address = models.CharField(max_length=50, null=True, blank=True)
     phone = PhoneNumberField(null=True, blank=True, unique=False)
+    city = models.CharField(max_length=100, null=True, blank=True)
+    country = models.CharField(max_length=100, null=True, blank=True)
+    postal_code = models.CharField(max_length=100, null=True, blank=True)
 
 
 class Order(models.Model):

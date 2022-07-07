@@ -16,6 +16,7 @@ import stripe
 from django.utils import timezone
 from django.conf import settings
 from .filters import ProductFilter
+from django.core.paginator import Paginator
 stripe.api_key = settings.STRIPE_SECRET_KEY
 
 
@@ -34,11 +35,14 @@ def register(request):
 def productlist(request):
     products = Product.objects.all()
     myFilter = ProductFilter(request.GET, queryset=products)
-    #qs -> querySet data gets rendered, thrown into filter, and then we remake variable products with new data
     products = myFilter.qs
+    paginator = Paginator(products, 2)
+    page = request.GET.get('page')
+    products_pages = paginator.get_page(page)
     data = {
         'products': products,
-        'myFilter': myFilter
+        'myFilter': myFilter,
+        'products_pages': products_pages
     }
     return render(request, 'products/productlist.html', data)
 
