@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="container">
+        {% if request.user.role_id|lower == 'admin' or request.user.id == order.customer_id.id %}
+            <h2 style="margin-bottom: 50px; margin-top: 50px;">Order: {{order.number}}<br> Customer ID: {{order.customer_id.id}}</h2>             
+     
+                {% for item in orderItems %}
+                    <div class="row spaceBetween" style="margin-bottom:1px solid #333">
+                        <div class="col-sm-2">
+                            <a href="{% url 'productdetail' item.product.product_id.id %}"><img  src="{{ item.product.product_id.image.url }}" style="max-width: 60%;" alt={{item.product.product_id.name}}></a>
+                        </div>
+                        <div class="col-sm-3">
+                            <p style="font-weight: 600; margin-top:15px;">
+                            {{item.product.product_id.name}}<br>Size:  {{item.product.size_id}}
+                            </p>
+                        </div>
+                        <div class="col-sm-4">
+                            <form method="post">
+                                {% csrf_token %}                        
+                                    <p style="margin-top:15px;">
+                                        Material: {{item.product.product_id.material}}<br>
+                                        Brand : {{item.product.product_id.brand_id}}<br>
+                                        Color : {{item.product.product_id.color}}
+                                    </p>
+                            </form>
+                        </div>
+                        
+                        <div class="col-sm-3" style="margin-top:15px;">
+                            <p style="font-weight: 600;">
+                            Quantity: {{item.quantity}} -  Price: {{item.get_total}} $
+                            </p>
+                        </div>        
+                    </div>
+                    
+                {% endfor %}
+
+                <p><strong>Total order price: {{order.get_total}} $<br><br>
+                           Order status: {{order.status}}</strong>
+                </p>
+            
+        {% else %}
+                <h3 style="margin-top: 50px;">You have no permission for this site.</h3>
+        {% endif %}
+</div>
+{% endblock %}

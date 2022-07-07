@@ -6,6 +6,19 @@
     
 
         <h1 style="margin-bottom: 80px; margin-top: 50px;">Enjoy our products: </h1>
+    <div class="row">
+        <div class="col-sm-12" style="margin-bottom: 80px;">
+            <form method="get">
+                {% csrf_token %}
+                Category: {{ myFilter.form.category_id }} &nbsp;
+                NBA Team: {{ myFilter.form.team_id }} &nbsp;
+                Brand: {{ myFilter.form.brand_id }} &nbsp;
+                Search: {{myFilter.form.name}} &nbsp;     
+                <button class="btn btn-secondary" type="submit">Go</button>
+            </form>
+        </div>
+    </div>
+
 
         {% for product in products %}
         <div class="row" style="margin-bottom: 100px;">

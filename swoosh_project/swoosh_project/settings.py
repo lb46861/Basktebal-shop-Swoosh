@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'phonenumber_field',
     'django_static_ionicons',
+    'django_filters',
     'swoosh_app',
 ]
 

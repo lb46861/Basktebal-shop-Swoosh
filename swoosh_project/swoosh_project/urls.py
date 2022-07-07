@@ -34,6 +34,8 @@ urlpatterns = [
     path('changepassword/', views.ChangePasswordView.as_view(), name='changepassword'),
     path('create-checkout-session', views.CreateCheckoutSessionView.as_view(), name='create-checkout-session'),
     path('success/<str:session_id>/', views.success_payment, name='success'),
+    path('orders/', views.myorders, name='orders'),
+    path('order/<int:id>', views.order, name='order'),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

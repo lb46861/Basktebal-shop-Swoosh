@@ -15,6 +15,7 @@ from django.views import View
 import stripe
 from django.utils import timezone
 from django.conf import settings
+from .filters import ProductFilter
 stripe.api_key = settings.STRIPE_SECRET_KEY
 
 
@@ -32,7 +33,14 @@ def register(request):
 
 def productlist(request):
     products = Product.objects.all()
-    return render(request, 'products/productlist.html', {'products': products})
+    myFilter = ProductFilter(request.GET, queryset=products)
+    #qs -> querySet data gets rendered, thrown into filter, and then we remake variable products with new data
+    products = myFilter.qs
+    data = {
+        'products': products,
+        'myFilter': myFilter
+    }
+    return render(request, 'products/productlist.html', data)
 
 @login_required(login_url='login')
 def addToCart(request, myProduct):
@@ -137,7 +145,25 @@ def cart(request):
 
     return render(request, 'account/mycart.html', data)
 
+@login_required(login_url='login')
+def order(request, id):
+    order = Order.objects.get(id = id)
+    orderItems = order.orderdetails_set.all()
+    data = {
+        'order': order,
+        'orderItems': orderItems,
+    }
+    return render(request, 'account/order.html', data)
 
+
+@login_required(login_url='login')
+def myorders(request):
+    customer = request.user
+    orders = Order.objects.filter(customer_id = customer, status = 'payed')
+    data ={
+        'orders': orders,
+    }
+    return render(request, 'account/myorders.html', data)
 
 @login_required(login_url='login')
 def profile(request):
