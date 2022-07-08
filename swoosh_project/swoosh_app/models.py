@@ -11,11 +11,11 @@ class Role(models.Model):
 
 class User(AbstractUser):
     role_id = models.ForeignKey(Role, on_delete=models.CASCADE, null=True, default=1)
-    address = models.CharField(max_length=50, null=True, blank=True)
+    address = models.CharField(max_length=50, null=True, blank=False)
     phone = PhoneNumberField(null=True, blank=True, unique=False)
-    city = models.CharField(max_length=100, null=True, blank=True)
-    country = models.CharField(max_length=100, null=True, blank=True)
-    postal_code = models.CharField(max_length=100, null=True, blank=True)
+    city = models.CharField(max_length=100, null=True, blank=False)
+    country = models.CharField(max_length=100, null=True, blank=False)
+    postal_code = models.CharField(max_length=100, null=True, blank=False)
 
 
 class Order(models.Model):

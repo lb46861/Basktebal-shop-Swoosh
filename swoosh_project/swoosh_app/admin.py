@@ -7,10 +7,10 @@ from django.contrib.auth.admin import UserAdmin
 @admin.register(User)
 class UserAdmin(UserAdmin):
     fieldsets = UserAdmin.fieldsets + (
-        ('None', {'fields':('role_id', 'address', 'phone')}),
+        ('None', {'fields':('role_id', 'address', 'phone', 'city', 'country', 'postal_code')}),
     )
     add_fieldsets = UserAdmin.add_fieldsets + (
-        ('None', {'fields':('role_id', 'address', 'phone')}),
+        ('None', {'fields':('role_id', 'address', 'phone', 'city', 'country', 'postal_code')}),
     )
     
 admin.site.register(Role)

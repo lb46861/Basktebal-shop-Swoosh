@@ -27,7 +27,10 @@ def register(request):
             form.save()
             return redirect('login')
     else:
-         form = UserForm()
+        if request.user.is_authenticated:
+            return redirect('productlist')
+        else:
+            form = UserForm()
     
     return render(request, 'account/register.html', {'form':form})
 
@@ -36,7 +39,7 @@ def productlist(request):
     products = Product.objects.all()
     myFilter = ProductFilter(request.GET, queryset=products)
     products = myFilter.qs
-    paginator = Paginator(products, 2)
+    paginator = Paginator(products, 5)
     page = request.GET.get('page')
     products_pages = paginator.get_page(page)
     data = {
