@@ -65,7 +65,7 @@ class Size(models.Model):
         return self.size
 
 class Product(models.Model):
-    team_id = models.ForeignKey(Team, on_delete=models.CASCADE, null=True, blank=True)
+    team_id = models.ForeignKey(Team, on_delete=models.CASCADE, null=True)
     category_id = models.ForeignKey(Category, on_delete=models.CASCADE, null=True)
     brand_id = models.ForeignKey(Brand, on_delete=models.CASCADE, null=True)
     name =  models.CharField(max_length=50, null=True)
@@ -73,7 +73,7 @@ class Product(models.Model):
     description = models.TextField(max_length=400, null=True, blank=True)
     color = models.CharField(max_length=12, null=True, blank=True)
     price= models.DecimalField(max_digits=10, decimal_places=2)
-    image = models.ImageField(null=True, blank=True)
+    image = models.ImageField(null=True)
 
     def __str__(self):
         return self.name

@@ -4,13 +4,14 @@ import json
 from xmlrpc.client import DateTime
 from django.http import HttpResponse
 from django.shortcuts import redirect, render
-from .forms import UserForm, UpdateUserForm
+from .forms import *
 from .models import Product, ProductDetail, Order, OrderDetails
 import uuid, random
 from django.contrib.auth.decorators import login_required
 from django.urls import reverse_lazy
 from django.contrib.auth.views import PasswordChangeView
 from django.contrib.messages.views import SuccessMessageMixin
+from django.contrib import messages
 from django.views import View
 import stripe
 from django.utils import timezone
@@ -35,7 +36,73 @@ def register(request):
     return render(request, 'account/register.html', {'form':form})
 
 
+def deleteproduct(product):
+    product = Product.objects.get(id=product)
+    product.delete()
+    return 'Product successfully deleted!'
+
+@login_required(login_url='login')
+def editproduct(request, id):
+    product = Product.objects.get(id = id)
+    form = ProductForm(instance=product)
+    info = ''
+    if request.method=='POST':
+        form = ProductForm(request.POST, request.FILES, instance=product)
+        if form.is_valid():
+            form.save()
+            info = 'Product successfully edited!'
+        else:
+            info = 'Something went wrong!'
+    data = {
+        'form': form,
+        'info': info
+    }
+    return render(request, "admin/editproduct.html", data)
+
+
+def editproductdetail(request):
+    form = ProductDetailForm()
+    if request.method=='POST':
+        form = ProductDetailForm(request.POST)
+        if form.is_valid():
+            product = Product.objects.get(id = form['product_id'].value())
+            size = Size.objects.get(id = form['size_id'].value())
+            quantity = form['quantity'].value()
+            myProductDetail, create = ProductDetail.objects.get_or_create(product_id = product, size_id = size)
+            myProductDetail.quantity = quantity
+            myProductDetail.save()
+            messages.success(request, 'Product detail edited!')
+            return redirect('productlist')
+        else:
+            return HttpResponse('Something went wrong!')
+    data = {
+        'form': form,
+    }
+    return render(request, "admin/editproductdetail.html", data)
+
+@login_required(login_url='login')
+def addproduct(request):
+    form = ProductForm()
+
+    if request.method == 'POST':
+        form = ProductForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Product successfully added!')
+            return redirect('productlist')
+        else:
+            return HttpResponse('Something went wrong!')
+
+    return render(request, 'admin/addproduct.html', {'form':form})
+
 def productlist(request):
+    info = ''
+    if request.method == 'POST':
+        product = request.POST['product']
+        action = request.POST['action']
+        if action == 'delete':
+            info = deleteproduct(product)
+      
     products = Product.objects.all()
     myFilter = ProductFilter(request.GET, queryset=products)
     products = myFilter.qs
@@ -43,6 +110,7 @@ def productlist(request):
     page = request.GET.get('page')
     products_pages = paginator.get_page(page)
     data = {
+        'info':info,
         'products': products,
         'myFilter': myFilter,
         'products_pages': products_pages

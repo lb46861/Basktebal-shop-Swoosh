@@ -5,7 +5,37 @@
 <div class="container">
     
 
+
+    {% if messages %}
+        {% for message in messages %}
+            <div id='success-alert' class="alert alert-success alert-dismissible fade show" role="alert" style="margin-top: 50px;">
+                {{message}}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+
+        {% endfor %}     
+    {% endif %}
+
+    {% if info %}
+        <div id='success-alert' class="alert alert-warning alert-dismissible fade show" role="alert" style="margin-top: 50px;">
+            {{info}}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    {% endif %}
+
+    {% if request.user.role_id|lower == 'admin' %}
+    <div style="margin-bottom: 50px; margin-top: 50px;">
+        <h1>PRODUCTS CRUD</h1>
+        <p><a href="{% url 'addproduct' %}" class="btn btn-secondary" role="button" style="color: #fff;" >Add new product</a>&nbsp;&nbsp;
+        <a href="{% url 'editproductdetail' %}" class="btn btn-dark" role="button" style="color: #fff;">Product Details</a>&nbsp;</p>
+    </div>
+    {% else %}
         <h1 style="margin-bottom: 50px; margin-top: 50px;">Enjoy our products: </h1>
+    {% endif %}
+
+
+
+
     <div class="row">
         <div class="col-sm-12" style="margin-bottom: 50px;">
             <form method="get">
@@ -37,8 +67,19 @@
             </div>
             
             <div class="col-sm-2">
-                <p>Price: {{product.price}}$<br>
-                <a href="{% url 'productdetail' product.id %}" style="font-size: 1.2rem;">Buy here</a></p>
+                {% if request.user.role_id|lower == 'admin' %}
+                    <form method="post">
+                        {% csrf_token %}
+                        <p>
+                            <input type="hidden" name="product" value="{{ product.id }}" />
+                            <a href="{% url 'editproduct' product.id %}" class="btn btn-primary" role="button" style="color: #fff;">Edit</a>&nbsp;
+                            <button class='btn btn-danger' type="submit" name="action" value="delete"  onclick="return confirm('Are you sure you want to delete {{product.name}}?')">Delete</button>    
+                        </p>                     
+                    </form>   
+                {% else %}
+                    <p>Price: {{product.price}}$<br>
+                    <a href="{% url 'productdetail' product.id %}" style="font-size: 1.2rem;">Buy here</a></p>
+                {% endif %}
             </div>
         </div>
   
