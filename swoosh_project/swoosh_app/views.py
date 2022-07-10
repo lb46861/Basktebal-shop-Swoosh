@@ -1,7 +1,4 @@
-import datetime
 from hashlib import blake2b
-import json
-from xmlrpc.client import DateTime
 from django.http import HttpResponse
 from django.shortcuts import redirect, render
 from .forms import *
@@ -51,8 +48,7 @@ def editproduct(request, id):
         if form.is_valid():
             form.save()
             info = 'Product successfully edited!'
-        else:
-            info = 'Something went wrong!'
+
     data = {
         'form': form,
         'info': info
@@ -79,6 +75,24 @@ def editproductdetail(request):
         'form': form,
     }
     return render(request, "admin/editproductdetail.html", data)
+
+@login_required(login_url='login')
+def editorder(request, id):
+    info = ''
+    order = Order.objects.get(id = id)
+    form = OrderForm(instance=order)
+    if request.method=='POST':
+        form = OrderForm(request.POST, instance=order)
+        if form.is_valid():
+            form.save()
+            info = 'Product successfully edited!'
+
+    data = {
+        'info': info,
+        'form': form,
+        'order': order
+    }
+    return render(request, "admin/editorder.html", data)
 
 @login_required(login_url='login')
 def addproduct(request):
@@ -240,6 +254,27 @@ def myorders(request):
     }
     return render(request, 'account/myorders.html', data)
 
+
+def deleteorder(order):
+    order = Order.objects.get(id=order)
+    order.delete()
+    return 'Product successfully deleted!'
+
+@login_required(login_url='login')
+def allorders(request):
+    info = ''
+    orders = Order.objects.filter(status = 'payed')
+    if request.method == 'POST':
+        order = request.POST['order']
+        action = request.POST['action']
+        if action == 'delete':
+            info = deleteorder(order)
+    data ={
+        'orders': orders,
+        'info': info
+    }
+    return render(request, 'admin/allorders.html', data)
+
 @login_required(login_url='login')
 def profile(request):
     msg = ''
@@ -275,7 +310,7 @@ mycheckout_session = ''
 def success_payment(request, session_id):
     if(mycheckout_session == session_id):
         customer = request.user
-        order = Order.objects.get(customer_id= customer, status='cart')
+        order = Order.objects.get(customer_id=customer, status='cart')
         number = uuid.uuid1(random.randint(0, 281474976710655))
         order.number = number
         order.status = 'payed'

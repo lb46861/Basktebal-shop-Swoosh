@@ -16,7 +16,7 @@ class User(AbstractUser):
     city = models.CharField(max_length=100, null=True, blank=False)
     country = models.CharField(max_length=100, null=True, blank=False)
     postal_code = models.CharField(max_length=100, null=True, blank=False)
-
+    
 
 class Order(models.Model):
     customer_id = models.ForeignKey(User, on_delete=models.CASCADE, null=True)

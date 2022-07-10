@@ -33,3 +33,8 @@ class ProductDetailForm(ModelForm):
     model = ProductDetail
     fields = '__all__'
 
+
+class OrderForm(ModelForm):
+  class Meta:
+    model = Order
+    fields = '__all__'
