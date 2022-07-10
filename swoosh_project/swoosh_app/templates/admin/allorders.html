@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<div class="container">
+<div class="container" style="margin-bottom: 50px;">
     {% if request.user.role_id|lower == 'admin' %}
         <h2 style="margin-bottom: 30px; margin-top: 50px; margin-left: 0; padding-left: 0;">Your orders: </h2>
 
