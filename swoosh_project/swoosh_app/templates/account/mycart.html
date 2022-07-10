@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+<div class="container">
+    
+
+        <h2 style="margin-bottom: 30px; margin-top: 50px; margin-left: 0; padding-left: 0;">Your cart: </h2>
+       
+            {% if stock %}
+            <div id='success-alert' class="alert alert-warning alert-dismissible fade show" role="alert">
+                {{stock}}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            {% endif %}
+
+        {% if cartItems %}
+            {% for item in cartItems %}
+                <div class="row spaceBetween">
+                    <div class="col-sm-2">
+                        <a href="{% url 'productdetail' item.product.product_id.id %}"><img  src="{{ item.product.product_id.image.url }}" style="max-width: 70%;" alt={{item.product.product_id.name}}></a>
+                    </div>
+                    <div class="col-sm-3">
+                        <p style="font-weight: 600; margin-top:15px;">
+                        {{item.product.product_id.name}}<br><br>Size:  {{item.product.size_id}}
+                        </p>
+                    </div>
+                    <div class="col-sm-4">
+                        <form method="post">
+                            {% csrf_token %}                        
+                                <p style="margin-top:50px; text-align: left;">
+                                <input type='hidden' name="myproduct" value="{{item.product.id}}" />
+                                <button type="submit" name="option" value="add" class="btn btn-secondary">Add</button>
+                                <button type="submit" name="option" value="removeOne" class="btn btn-dark">Remove</button>
+                                <button type="submit" name="option" value="removeAll" class="btn btn-danger">Remove all</button>
+                                <br>
+                                </p>
+                        </form>
+                    </div>
+                    
+                    <div class="col-sm-3" style="margin-top:60px;">
+                        <p style="font-weight: 600; text-align: right;">
+                        Quantity: {{item.quantity}} -  Price: {{item.get_total}} $
+                        </p>
+                    </div>        
+                </div>  
+            {% endfor %}
+            <hr>
+            <div class="row">
+                <div class="col-sm-8"></div>
+                <div class="col-sm-4">
+                    <p style="font-weight: 600; text-align: right; padding-top: 40px;">Total price: {{order.get_total}} $
+                        <br><br>
+                    <form action="/create-checkout-session" method="post">
+                        {% csrf_token %}                          <p style="text-align: right;"><button type="submit" id="checkout-button" class="btn btn-dark">Checkout</button></p>
+                            
+                    </form>
+                </p>
+                </div>
+            </div>
+        {% else %}
+            <h5 style="margin-left:0; padding-left: 0;">You currently have not items in cart.</h5>
+        {% endif %}
+</div>
+
+{% endblock %}

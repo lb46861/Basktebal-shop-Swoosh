@@ -1,0 +1,144 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+<div class="container">
+    <div class="row" style="margin-top:50px;">
+
+        <h1 style="margin-bottom: 80px;">Buy it now</h1>
+
+        {% if stock %}
+        <div id='success-alert' class="alert alert-warning alert-dismissible fade show" role="alert">
+            {{stock}}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        {% endif %}
+        
+        <div class="col-sm-4">
+            <img  src="{{ product.image.url }}" class="img-fluid" alt={{product.name}}>
+        </div>
+
+        <div class="col-sm-8" style="padding-left:50px;">
+            <h3>{{product.name}}</h3>
+            <p>
+            Team: {{product.team_id}}<br>
+            Brand: {{product.brand_id}}<br>
+            Description: {{product.material}}<br>
+            Color: {{product.color}}<br>
+            </p>
+
+            <div class="form-group">
+                {% if available > 0 %}
+                   
+                            <form method="post">
+                            {% csrf_token %}
+                                <p style="margin: 0;">
+                                <select name='myproduct'>
+                                    {% for product in productdetail %}
+                                        {% if product.quantity > 0 %}
+                                            <option value='{{product.id}}'>{{product.size_id}} {% if product.quantity == 1 %} - Last one left {% endif %}</option>
+                                        {% endif %}
+                                    {% endfor %}                      
+                                </select>
+                                </p>
+                                <p style="margin: 0;">Price {{product.price}}$</p>
+                                <p>
+                                <button type="submit" name="option" value="tocart" class="btn btn-info">Add to cart</button>&nbsp;
+                                <button type="submit" name="option" value="buy" class="btn btn-warning">Buy now</button>
+                                </p>
+                            </form>
+                    
+                {% else %}
+                    <p class="alert alert-danger" style="width: 150px;">Out of stock !</p>
+                {% endif %}
+                
+            </div>
+        </div>
+    </div>
+
+
+
+
+    {% if similiarProducts %}
+        <div class="similiarProducts" style="margin-top: 100px;">
+        <div class="row">
+            <h3 style="text-align: center; font-weight: bold; margin: 0;">You may also like: </h3>
+            <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">   
+                    {% for product in similiarProducts %}
+                        {% if not forloop.first %}
+                            <div class="carousel-item">  
+                                <div class="row">
+                                    <div class="col-sm-1"></div>
+                                    <div class="col-sm-2">
+                                        <a href="{% url 'productdetail' product.id %}"><img src="{{product.image.url}}" class="d-block w-100 img-fluid" alt="{{product.name}}" style="border-radius:50%; margin: 40px 0 0 0; "></a>
+                                    </div>
+                                    
+                                    <div class="col-sm-5" style="margin-top:40px; padding-left:50px;">
+                                        <h3 style="margin: 0;padding:0;">{{product.name}}</h3>
+                                        <p>
+                                        Team: {{product.team_id}}<br>
+                                        Brand: {{product.brand_id}}<br>
+                                        Description: {{product.material}}<br>
+                                        Color: {{product.color}}<br>
+                                        </p>
+                                    </div>
+                                    <div class="col-sm-1"></div>
+                                    <div class="col-sm-2" style="padding-top:30px">
+                                        <p>Price: {{product.price}}$<br>
+                                        <a href="{% url 'productdetail' product.id %}" style="font-size: 1.2rem;" class="link-light">Buy here</a></p>
+                                    </div>
+                                </div>                                      
+                            </div>
+                        {% else %}
+                        
+                            <div class="carousel-item active">                  
+                                <div class="row">
+                                    <div class="col-sm-1"></div>
+                                    <div class="col-sm-2">
+                                        <a href="{% url 'productdetail' product.id %}"><img src="{{product.image.url}}" class="d-block w-100 img-fluid" alt="{{product.name}}" style="border-radius: 50%; margin: 40px 0 0 0;"></a>
+                                    </div>
+                                    
+                                    <div class="col-sm-5" style="margin-top:40px; padding-left:50px;">
+                                        <h3 style="margin: 0;padding:0;">{{product.name}}</h3>
+                                        <p>
+                                        Team: {{product.team_id}}<br>
+                                        Brand: {{product.brand_id}}<br>
+                                        Description: {{product.material}}<br>
+                                        Color: {{product.color}}<br>
+                                        </p>
+                                    </div>
+                                    <div class="col-sm-1"></div>
+                                    <div class="col-sm-2" style="padding-top:30px;">
+                                        <p>Price: {{product.price}}$<br>
+                                        <a href="{% url 'productdetail' product.id %}" style="font-size: 1.2rem;" class="link-light">Buy here</a></p>
+                                    </div>
+                                </div>                 
+                            </div>
+                        {% endif %}
+                    {% endfor %} 
+            
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+
+        </div>
+        </div>
+    {% endif %}
+
+
+
+
+
+
+
+</div>
+
+{% endblock %}

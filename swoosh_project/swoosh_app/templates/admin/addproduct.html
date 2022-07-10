@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="container">
+
+    <div class="row mb-5 mt-5">
+        {% if request.user.role_id|lower == 'admin' %}
+            <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <h2>Add new product:</h2>
+                {% for field in form %}
+                <p>
+                    {{ field.label_tag }}<br>
+                    {{ field }}
+                
+                    {% for error in field.errors %}
+                        <div class="alert alert-danger">
+                            <p style="color:rgb(196, 79, 44)"><strong>{{ error }}</strong></p>
+                        </div>
+                    {% endfor %}        
+                </p>
+                {% endfor %}
+                {% csrf_token %}
+                <input type="submit" value="Add product">
+            </form>
+
+
+            {% else %}
+
+            <p>No permission</p>
+
+            {% endif %}      
+    </div>
+</div>
+
+{% endblock %}
