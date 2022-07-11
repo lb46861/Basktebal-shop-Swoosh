@@ -330,7 +330,7 @@ class CreateCheckoutSessionView(View):
     def post(self, request, *args, **kwargs):
         customer = request.user
         order =  Order.objects.get(customer_id= customer, status='cart')
-        YOUR_DOMAIN = 'http://127.0.0.1:8000'
+        YOUR_DOMAIN = 'http://localhost:8000'
         checkout_session = stripe.checkout.Session.create(
             line_items=[
                 {
@@ -345,7 +345,7 @@ class CreateCheckoutSessionView(View):
                 },
             ],
             metadata = {
-                'order_id': order.id
+                'order_id': order.id,
             },
             mode='payment',
             success_url= YOUR_DOMAIN + "/success/{CHECKOUT_SESSION_ID}/",
