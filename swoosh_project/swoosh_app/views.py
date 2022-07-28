@@ -1,3 +1,4 @@
+import datetime
 from hashlib import blake2b
 from django.http import HttpResponse
 from django.shortcuts import redirect, render
@@ -13,8 +14,9 @@ from django.views import View
 import stripe
 from django.utils import timezone
 from django.conf import settings
-from .filters import ProductFilter
+from .filters import OrderFilter, ProductFilter
 from django.core.paginator import Paginator
+import calendar
 stripe.api_key = settings.STRIPE_SECRET_KEY
 
 
@@ -109,6 +111,68 @@ def addproduct(request):
 
     return render(request, 'admin/addproduct.html', {'form':form})
 
+
+
+# Duplicated function, 
+# def best_buy_week():
+#     products = Product.objects.all()
+#     thisweek = {}
+#     date = datetime.date.today()
+#     start_week = date - datetime.timedelta(date.weekday())
+#     end_week = start_week + datetime.timedelta(6)
+
+#     for product in products:
+#         num_of_prod = 0
+#         orderedItems = OrderDetails.objects.filter(status='paid', product__product_id = product)
+#         for order in orderedItems:
+#             orderdatetime = order.date
+#             orderdate = orderdatetime.date()
+#             if orderdate >= start_week and orderdate <= end_week:
+#                     num_of_prod += order.quantity 
+
+#         if num_of_prod > 0:
+#             thisweek[product] = num_of_prod
+#     return thisweek
+
+
+def best_buy_range(start, end):
+
+    products = Product.objects.all()
+    thismonth = {}
+
+    for product in products:
+        num_of_prod = 0
+        orderedItems = OrderDetails.objects.filter(status='paid', product__product_id = product)
+        for order in orderedItems:
+            orderdatetime = order.date
+            orderdate = orderdatetime.date()
+            if orderdate >= start and orderdate <= end:
+                    num_of_prod += order.quantity 
+
+        if num_of_prod > 0:
+            thismonth[product] = num_of_prod
+
+    return thismonth
+
+
+
+@login_required(login_url='login')
+def bestbuy(request):
+    _, lastday = calendar.monthrange(timezone.now().year, timezone.now().month)
+    first_day_month = datetime.date(timezone.now().year, timezone.now().month, 1)
+    last_day_month = datetime.date(timezone.now().year, timezone.now().month, lastday)
+    date = datetime.date.today()
+    start_week = date - datetime.timedelta(date.weekday())
+    end_week = start_week + datetime.timedelta(6)
+
+    thisweek = best_buy_range(start_week, end_week)
+    thismonth = best_buy_range(first_day_month, last_day_month)
+
+    
+
+    return render(request, 'products/bestbuy.html')
+
+
 def productlist(request):
     info = ''
     if request.method == 'POST':
@@ -117,7 +181,7 @@ def productlist(request):
         if action == 'delete':
             info = deleteproduct(product)
       
-    products = Product.objects.all()
+    products = Product.objects.all().order_by('id')
     myFilter = ProductFilter(request.GET, queryset=products)
     products = myFilter.qs
     paginator = Paginator(products, 5)
@@ -234,6 +298,8 @@ def cart(request):
 
     return render(request, 'account/mycart.html', data)
 
+
+
 @login_required(login_url='login')
 def order(request, id):
     order = Order.objects.get(id = id)
@@ -248,7 +314,7 @@ def order(request, id):
 @login_required(login_url='login')
 def myorders(request):
     customer = request.user
-    orders = Order.objects.filter(customer_id = customer, status = 'payed')
+    orders = Order.objects.filter(customer_id = customer, status = 'paid')
     data ={
         'orders': orders,
     }
@@ -263,15 +329,19 @@ def deleteorder(order):
 @login_required(login_url='login')
 def allorders(request):
     info = ''
-    orders = Order.objects.filter(status = 'payed')
+    orders = Order.objects.filter(status = 'paid')
     if request.method == 'POST':
         order = request.POST['order']
         action = request.POST['action']
         if action == 'delete':
             info = deleteorder(order)
+
+    filter = OrderFilter(request.GET, queryset=orders)
+    orders = filter.qs
     data ={
         'orders': orders,
-        'info': info
+        'info': info,
+        'filter': filter,
     }
     return render(request, 'admin/allorders.html', data)
 
@@ -311,10 +381,17 @@ def success_payment(request, session_id):
     if(mycheckout_session == session_id):
         customer = request.user
         order = Order.objects.get(customer_id=customer, status='cart')
+        myOrderDetails = OrderDetails.objects.filter(order_id=order)
+
+        for orderDetail in myOrderDetails:
+            print(orderDetail)
+            orderDetail.date = timezone.now().replace(microsecond=0)
+            orderDetail.status = 'paid'
+            orderDetail.save()
         number = uuid.uuid1(random.randint(0, 281474976710655))
         order.number = number
-        order.status = 'payed'
-        order.date = timezone.now()
+        order.date = timezone.now().replace(microsecond=0)
+        order.status = 'paid'
         order.save()
         data =  {
             'order': order,

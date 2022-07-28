@@ -90,7 +90,10 @@ class ProductDetail(models.Model):
 class OrderDetails(models.Model):
     product = models.ForeignKey(ProductDetail, on_delete=models.CASCADE, null=True)
     order_id = models.ForeignKey(Order, on_delete=models.CASCADE, null=True)
+    date = models.DateTimeField(null=True, blank=True) 
     quantity = models.IntegerField(default = 0, null=True)
+    status = models.CharField(max_length=100, null=True, blank=True)
+
 
     @property
     def get_total(self):
@@ -98,4 +101,4 @@ class OrderDetails(models.Model):
         return total
 
     def __str__(self):
-        return f"{self.id} - {self.order_id}"
+        return f"{self.id} - {self.product} - {self.order_id.id} - {self.date} - {self.quantity}"

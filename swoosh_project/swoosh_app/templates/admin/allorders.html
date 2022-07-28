@@ -3,7 +3,22 @@
 
 <div class="container" style="margin-bottom: 50px;">
     {% if request.user.role_id|lower == 'admin' %}
-        <h2 style="margin-bottom: 30px; margin-top: 50px; margin-left: 0; padding-left: 0;">Your orders: </h2>
+        <h2 style="margin-bottom: 30px; margin-top: 50px; margin-left: 0; padding-left: 0;">All orders: </h2>
+
+
+
+
+        
+    <div class="row">
+        <div class="col-sm-12" style="margin-bottom: 50px;">
+            <form method="get">
+                {% csrf_token %}
+                Search by email: {{filter.form.name}} &nbsp;     
+               
+                <button class="btn btn-secondary" type="submit">Go</button>
+            </form>
+        </div>
+    </div>
 
         {% if orders %}
             {% for order in orders reversed %}
@@ -39,7 +54,7 @@
             {% endfor %}
            
         {% else %}
-            <h5 style="margin-left: 0; padding-left: 0;">You do not have any orders.</h5>
+            <h5 style="margin-left: 0; padding-left: 0;">No orders to display.</h5>
         {% endif %}
         
     {% else %}

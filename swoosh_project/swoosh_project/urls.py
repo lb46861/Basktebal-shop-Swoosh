@@ -41,6 +41,7 @@ urlpatterns = [
     path('editproduct/<int:id>', views.editproduct, name='editproduct'),
     path('addproduct/', views.addproduct, name='addproduct'),
     path('editproductdetail/', views.editproductdetail, name='editproductdetail'),
+    path('bestbuy/', views.bestbuy, name='bestbuy'),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
