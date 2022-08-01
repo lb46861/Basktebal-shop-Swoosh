@@ -113,7 +113,7 @@ def addproduct(request):
 
 
 
-# Duplicated function, 
+# Duplicated function, fixed to place everything in 1
 # def best_buy_week():
 #     products = Product.objects.all()
 #     thisweek = {}
@@ -147,7 +147,7 @@ def best_buy_range(start, end):
             orderdatetime = order.date
             orderdate = orderdatetime.date()
             if orderdate >= start and orderdate <= end:
-                    num_of_prod += order.quantity 
+                num_of_prod += order.quantity 
 
         if num_of_prod > 0:
             thismonth[product] = num_of_prod
@@ -161,14 +161,18 @@ def bestbuy(request):
     _, lastday = calendar.monthrange(timezone.now().year, timezone.now().month)
     first_day_month = datetime.date(timezone.now().year, timezone.now().month, 1)
     last_day_month = datetime.date(timezone.now().year, timezone.now().month, lastday)
+    current_day = datetime.date(timezone.now().year, timezone.now().month, timezone.now().day)
+
     date = datetime.date.today()
     start_week = date - datetime.timedelta(date.weekday())
     end_week = start_week + datetime.timedelta(6)
 
     thisweek = best_buy_range(start_week, end_week)
     thismonth = best_buy_range(first_day_month, last_day_month)
-
-    
+    thisday = best_buy_range(current_day, current_day)
+    for key, value in thismonth.items():
+        print(key, value)
+ 
 
     return render(request, 'products/bestbuy.html')
 
@@ -378,7 +382,8 @@ class ChangePasswordView(SuccessMessageMixin, PasswordChangeView):
 
 mycheckout_session = ''
 def success_payment(request, session_id):
-    if(mycheckout_session == session_id):
+    my_session = stripe.checkout.Session.retrieve(session_id)
+    if(my_session):
         customer = request.user
         order = Order.objects.get(customer_id=customer, status='cart')
         myOrderDetails = OrderDetails.objects.filter(order_id=order)
@@ -407,8 +412,9 @@ class CreateCheckoutSessionView(View):
     def post(self, request, *args, **kwargs):
         customer = request.user
         order =  Order.objects.get(customer_id= customer, status='cart')
-        YOUR_DOMAIN = 'http://localhost:8000'
+        MY_DOMAIN = 'http://localhost:8000'
         checkout_session = stripe.checkout.Session.create(
+            customer_email=request.user.email,
             line_items=[
                 {
                     'price_data': {
@@ -425,8 +431,8 @@ class CreateCheckoutSessionView(View):
                 'order_id': order.id,
             },
             mode='payment',
-            success_url= YOUR_DOMAIN + "/success/{CHECKOUT_SESSION_ID}/",
-            cancel_url = YOUR_DOMAIN + '/cart/',
+            success_url= MY_DOMAIN + "/success/{CHECKOUT_SESSION_ID}/",
+            cancel_url = MY_DOMAIN + '/cart/',
         )
         global mycheckout_session
         mycheckout_session = checkout_session.id
