@@ -21,7 +21,8 @@
                 {% elif request.user.role_id|lower == 'admin' %} 
                 <li><a class="nav-link" href="{% url 'allorders' %}">Orders</a></li>
                 {% endif %}
-                
+
+                <li><a class="nav-link inline" href="{% url 'bestbuy' %}">Best buy</a></li>
                 <li><strong><a class="nav-link inline" href="{% url 'logout' %}">Logout</a></strong></li>
 
             {% else %}

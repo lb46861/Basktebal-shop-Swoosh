@@ -1,3 +1,4 @@
+from audioop import reverse
 import datetime
 from hashlib import blake2b
 from django.http import HttpResponse
@@ -138,7 +139,7 @@ def addproduct(request):
 def best_buy_range(start, end):
 
     products = Product.objects.all()
-    thismonth = {}
+    bestBuyList = {}
 
     for product in products:
         num_of_prod = 0
@@ -150,9 +151,11 @@ def best_buy_range(start, end):
                 num_of_prod += order.quantity 
 
         if num_of_prod > 0:
-            thismonth[product] = num_of_prod
+            bestBuyList[product] = num_of_prod
 
-    return thismonth
+    bestBuyList = dict(sorted(bestBuyList.items(), key=lambda item: item[1], reverse = True)[:3])
+
+    return bestBuyList
 
 
 
@@ -170,11 +173,19 @@ def bestbuy(request):
     thisweek = best_buy_range(start_week, end_week)
     thismonth = best_buy_range(first_day_month, last_day_month)
     thisday = best_buy_range(current_day, current_day)
-    for key, value in thismonth.items():
-        print(key, value)
- 
 
-    return render(request, 'products/bestbuy.html')
+    data = {
+        'today': thisday,
+        'week': thisweek,
+        'month': thismonth
+    }
+
+    return render(request, 'products/bestbuy.html', data)
+
+
+def bestcustomer(request):
+
+    pass
 
 
 def productlist(request):

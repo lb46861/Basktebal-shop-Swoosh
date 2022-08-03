@@ -5,7 +5,75 @@
 <div class="container">
     
     <div class="row" style="margin-top: 50px;">
-            teste
+        <h2 style="margin-bottom: 50px; padding-left: 0; margin-left: 0;">Most sold products: </h2>
+
+
+        {% if today %}
+        <h3 style="margin-left:0; padding-left:0; text-align: center; margin-bottom: 20px;"><strong>Today</strong></h3><hr style="margin-bottom: 30px;">
+                {% for key, value in today.items %}
+                    <div class="row spaceBetween">
+                        <div class="col-sm-3">
+                            <a href="{% url 'productdetail' key.id %}"><img  src="{{ key.image.url }}" style="max-width: 60%;" alt={{key.name}}></a>
+                        </div>
+                        <div class="col-sm-6">
+                            <p style="font-weight: 600; margin-top:60px; font-size: 1.2rem; text-align: center;">
+                            {{key.name}}
+                            </p>
+                        </div>
+
+                        
+                        <div class="col-sm-3" style="margin-top:60px;">
+                            <p style="font-weight: bold; font-size: 1.2rem;">Times sold: {{value}}</p>
+                        </div>        
+                    </div>  
+                {% endfor %}
+        {% endif %}
+
+        {% if today %}
+        <h3 style="margin-left:0; padding-left:0; text-align: center; margin-bottom: 20px;"><strong>This week</strong></h3><hr style="margin-bottom: 50px;">
+            {% for key, value in week.items %}
+                <div class="row spaceBetween">
+                    <div class="col-sm-3">
+                        <a href="{% url 'productdetail' key.id %}"><img  src="{{ key.image.url }}" style="max-width: 60%;" alt={{key.name}}></a>
+                    </div>
+                    <div class="col-sm-6">
+                        <p style="font-weight: 600; margin-top:60px; font-size: 1.2rem; text-align: center;">
+                        {{key.name}}
+                        </p>
+                    </div>
+
+                    
+                    <div class="col-sm-3" style="margin-top:60px;">
+                        <p style="font-weight: bold; font-size: 1.2rem;">Times sold: {{value}}</p>
+                    </div>        
+                </div>  
+            {% endfor %}
+        {% endif %}
+
+
+        {% if today %}
+            <h3 style="margin-left:0; padding-left:0; text-align: center; margin-bottom: 20px;"><strong>This month</strong></h3><hr style="margin-bottom: 50px;">
+                {% for key, value in month.items %}
+                    <div class="row spaceBetween">
+                        <div class="col-sm-3">
+                            <a href="{% url 'productdetail' key.id %}"><img  src="{{ key.image.url }}" style="max-width: 60%;" alt={{key.name}}></a>
+                        </div>
+                        <div class="col-sm-6">
+                            <p style="font-weight: 600; margin-top:60px; font-size: 1.2rem; text-align: center;">
+                            {{key.name}}
+                            </p>
+                        </div>
+
+                        
+                        <div class="col-sm-3" style="margin-top:60px;">
+                            <p style="font-weight: bold; font-size: 1.2rem;">Times sold: {{value}}</p>
+                        </div>        
+                    </div>  
+                {% endfor %}
+        {% endif %}
+
+
+
     </div>
        
 </div>
