@@ -20,6 +20,7 @@
                 <li><a class="nav-link" href="{% url 'orders' %}">Orders</a></li>
                 {% elif request.user.role_id|lower == 'admin' %} 
                 <li><a class="nav-link" href="{% url 'allorders' %}">Orders</a></li>
+                <li><a class="nav-link inline" href="{% url 'bestcustomers' %}">Best customers</a></li>
                 {% endif %}
 
                 <li><a class="nav-link inline" href="{% url 'bestbuy' %}">Best buy</a></li>

@@ -3,8 +3,9 @@
 
 <div class="container">
         {% if request.user.role_id|lower == 'admin' or request.user.id == order.customer_id.id %}
-            <h2 style="margin-bottom: 50px; margin-top: 50px;">Order number: <span style="letter-spacing: 2px; font-weight: 100; font-size: 1.5rem;">{{order.number}}</span><br>
-                 Customer:  <span style="letter-spacing: 2px; font-weight: 100; font-size: 1.5rem;">{{order.customer_id.first_name|capfirst}} {{order.customer_id.last_name|capfirst}}</span></h2>             
+            <h3 style="margin-bottom: 50px; margin-top: 50px;">Order number: <span style="letter-spacing: 2px; font-weight: 100; font-size: 1.5rem;">{{order.number}}</span><br>
+                Order date:  <span style="letter-spacing: 2px; font-weight: 100; font-size: 1.5rem;">{{order.date}}</span><br>
+                 Customer:  <span style="letter-spacing: 2px; font-weight: 100; font-size: 1.5rem;">{{order.customer_id.first_name|capfirst}} {{order.customer_id.last_name|capfirst}}</span></h3>             
      
                 {% for item in orderItems %}
                     <div class="row spaceBetween" style="margin-bottom:1px solid #333">

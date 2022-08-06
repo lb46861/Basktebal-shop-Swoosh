@@ -67,3 +67,17 @@ select {
     border-radius: 20%;
 }
 
+
+#bestCustomer_contianer {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+#a {
+    width: 86%;
+}
+  
+#b {
+    width: 14%;
+}

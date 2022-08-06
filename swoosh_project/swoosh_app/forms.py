@@ -20,7 +20,7 @@ class UserForm(UserCreationForm):
 class UpdateUserForm(ModelForm):
   class Meta:
         model = User
-        fields = ['username', 'first_name', 'last_name', 'email', 'address', 'phone', 'city', 'country', 'postal_code']
+        fields = ['username', 'first_name', 'last_name', 'email', 'address', 'phone', 'city', 'country', 'postal_code', 'location']
 
 
 class ProductForm(ModelForm):

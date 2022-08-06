@@ -1,0 +1,2441 @@
+[
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "GBR", 
+            "name": "UNITED KINGDOM", 
+            "printable_name": "United Kingdom of Great Britain and Northern Ireland",  
+            "iso_3166_1_numeric": 826
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "AFG", 
+            "name": "AFGHANISTAN", 
+            "printable_name": "Afghanistan",  
+            "iso_3166_1_numeric": 4
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "ALA", 
+            "name": "ALAND ISLANDS", 
+            "printable_name": "\u00c5land Islands",  
+            "iso_3166_1_numeric": 248
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "ALB", 
+            "name": "ALBANIA", 
+            "printable_name": "Albania",  
+            "iso_3166_1_numeric": 8
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "DZA", 
+            "name": "ALGERIA", 
+            "printable_name": "Algeria",  
+            "iso_3166_1_numeric": 12
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "ASM", 
+            "name": "AMERICAN SAMOA", 
+            "printable_name": "American Samoa",  
+            "iso_3166_1_numeric": 16
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "AND", 
+            "name": "ANDORRA", 
+            "printable_name": "Andorra",  
+            "iso_3166_1_numeric": 20
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "AGO", 
+            "name": "ANGOLA", 
+            "printable_name": "Angola",  
+            "iso_3166_1_numeric": 24
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "AIA", 
+            "name": "ANGUILLA", 
+            "printable_name": "Anguilla",  
+            "iso_3166_1_numeric": 660
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "ATA", 
+            "name": "ANTARCTICA", 
+            "printable_name": "Antarctica",  
+            "iso_3166_1_numeric": 10
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "ATG", 
+            "name": "ANTIGUA AND BARBUDA", 
+            "printable_name": "Antigua and Barbuda",  
+            "iso_3166_1_numeric": 28
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "ARG", 
+            "name": "ARGENTINA", 
+            "printable_name": "Argentina",  
+            "iso_3166_1_numeric": 32
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "ARM", 
+            "name": "ARMENIA", 
+            "printable_name": "Armenia",  
+            "iso_3166_1_numeric": 51
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "ABW", 
+            "name": "ARUBA", 
+            "printable_name": "Aruba",  
+            "iso_3166_1_numeric": 533
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "AUS", 
+            "name": "AUSTRALIA", 
+            "printable_name": "Australia",  
+            "iso_3166_1_numeric": 36
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "AUT", 
+            "name": "AUSTRIA", 
+            "printable_name": "Austria",  
+            "iso_3166_1_numeric": 40
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "AZE", 
+            "name": "AZERBAIJAN", 
+            "printable_name": "Azerbaijan",  
+            "iso_3166_1_numeric": 31
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "BHS", 
+            "name": "BAHAMAS", 
+            "printable_name": "Bahamas",  
+            "iso_3166_1_numeric": 44
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "BHR", 
+            "name": "BAHRAIN", 
+            "printable_name": "Bahrain",  
+            "iso_3166_1_numeric": 48
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "BGD", 
+            "name": "BANGLADESH", 
+            "printable_name": "Bangladesh",  
+            "iso_3166_1_numeric": 50
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "BRB", 
+            "name": "BARBADOS", 
+            "printable_name": "Barbados",  
+            "iso_3166_1_numeric": 52
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "BLR", 
+            "name": "BELARUS", 
+            "printable_name": "Belarus",  
+            "iso_3166_1_numeric": 112
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "BEL", 
+            "name": "BELGIUM", 
+            "printable_name": "Belgium",  
+            "iso_3166_1_numeric": 56
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "BLZ", 
+            "name": "BELIZE", 
+            "printable_name": "Belize",  
+            "iso_3166_1_numeric": 84
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "BEN", 
+            "name": "BENIN", 
+            "printable_name": "Benin",  
+            "iso_3166_1_numeric": 204
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "BMU", 
+            "name": "BERMUDA", 
+            "printable_name": "Bermuda",  
+            "iso_3166_1_numeric": 60
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "BTN", 
+            "name": "BHUTAN", 
+            "printable_name": "Bhutan",  
+            "iso_3166_1_numeric": 64
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "BOL", 
+            "name": "BOLIVIA", 
+            "printable_name": "Bolivia",  
+            "iso_3166_1_numeric": 68
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "BIH", 
+            "name": "BOSNIA AND HERZEGOVINA", 
+            "printable_name": "Bosnia and Herzegovina",  
+            "iso_3166_1_numeric": 70
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "BWA", 
+            "name": "BOTSWANA", 
+            "printable_name": "Botswana",  
+            "iso_3166_1_numeric": 72
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "BVT", 
+            "name": "BOUVET ISLAND", 
+            "printable_name": "Bouvet Island",  
+            "iso_3166_1_numeric": 74
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "BRA", 
+            "name": "BRAZIL", 
+            "printable_name": "Brazil",  
+            "iso_3166_1_numeric": 76
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "IOT", 
+            "name": "BRITISH INDIAN OCEAN TERRITORY", 
+            "printable_name": "British Indian Ocean Territory",  
+            "iso_3166_1_numeric": 86
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "BRN", 
+            "name": "BRUNEI DARUSSALAM", 
+            "printable_name": "Brunei Darussalam",  
+            "iso_3166_1_numeric": 96
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "BGR", 
+            "name": "BULGARIA", 
+            "printable_name": "Bulgaria",  
+            "iso_3166_1_numeric": 100
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "BFA", 
+            "name": "BURKINA FASO", 
+            "printable_name": "Burkina Faso",  
+            "iso_3166_1_numeric": 854
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "BDI", 
+            "name": "BURUNDI", 
+            "printable_name": "Burundi",  
+            "iso_3166_1_numeric": 108
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "KHM", 
+            "name": "CAMBODIA", 
+            "printable_name": "Cambodia",  
+            "iso_3166_1_numeric": 116
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "CMR", 
+            "name": "CAMEROON", 
+            "printable_name": "Cameroon",  
+            "iso_3166_1_numeric": 120
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "CAN", 
+            "name": "CANADA", 
+            "printable_name": "Canada",  
+            "iso_3166_1_numeric": 124
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "CPV", 
+            "name": "CAPE VERDE", 
+            "printable_name": "Cape Verde",  
+            "iso_3166_1_numeric": 132
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "CYM", 
+            "name": "CAYMAN ISLANDS", 
+            "printable_name": "Cayman Islands",  
+            "iso_3166_1_numeric": 136
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "CAF", 
+            "name": "CENTRAL AFRICAN REPUBLIC", 
+            "printable_name": "Central African Republic",  
+            "iso_3166_1_numeric": 140
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "TCD", 
+            "name": "CHAD", 
+            "printable_name": "Chad",  
+            "iso_3166_1_numeric": 148
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "CHL", 
+            "name": "CHILE", 
+            "printable_name": "Chile",  
+            "iso_3166_1_numeric": 152
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "CHN", 
+            "name": "CHINA", 
+            "printable_name": "China",  
+            "iso_3166_1_numeric": 156
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "CXR", 
+            "name": "CHRISTMAS ISLAND", 
+            "printable_name": "Christmas Island",  
+            "iso_3166_1_numeric": 162
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "CCK", 
+            "name": "COCOS (KEELING) ISLANDS", 
+            "printable_name": "Cocos (Keeling) Islands",  
+            "iso_3166_1_numeric": 166
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "COL", 
+            "name": "COLOMBIA", 
+            "printable_name": "Colombia",  
+            "iso_3166_1_numeric": 170
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "COM", 
+            "name": "COMOROS", 
+            "printable_name": "Comoros",  
+            "iso_3166_1_numeric": 174
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "COG", 
+            "name": "CONGO", 
+            "printable_name": "Congo",  
+            "iso_3166_1_numeric": 178
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "COD", 
+            "name": "CONGO, THE DEMOCRATIC REPUBLIC OF THE", 
+            "printable_name": "Democratic Republic of the Congo",  
+            "iso_3166_1_numeric": 180
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "COK", 
+            "name": "COOK ISLANDS", 
+            "printable_name": "Cook Islands",  
+            "iso_3166_1_numeric": 184
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "CRI", 
+            "name": "COSTA RICA", 
+            "printable_name": "Costa Rica",  
+            "iso_3166_1_numeric": 188
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "CIV", 
+            "name": "COTE D'IVOIRE", 
+            "printable_name": "C\u00f4te d'Ivoire",  
+            "iso_3166_1_numeric": 384
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "HRV", 
+            "name": "CROATIA", 
+            "printable_name": "Croatia",  
+            "iso_3166_1_numeric": 191
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "CUB", 
+            "name": "CUBA", 
+            "printable_name": "Cuba",  
+            "iso_3166_1_numeric": 192
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "CYP", 
+            "name": "CYPRUS", 
+            "printable_name": "Cyprus",  
+            "iso_3166_1_numeric": 196
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "CZE", 
+            "name": "CZECH REPUBLIC", 
+            "printable_name": "Czech Republic",  
+            "iso_3166_1_numeric": 203
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "DNK", 
+            "name": "DENMARK", 
+            "printable_name": "Denmark",  
+            "iso_3166_1_numeric": 208
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "DJI", 
+            "name": "DJIBOUTI", 
+            "printable_name": "Djibouti",  
+            "iso_3166_1_numeric": 262
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "DMA", 
+            "name": "DOMINICA", 
+            "printable_name": "Dominica",  
+            "iso_3166_1_numeric": 212
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "DOM", 
+            "name": "DOMINICAN REPUBLIC", 
+            "printable_name": "Dominican Republic",  
+            "iso_3166_1_numeric": 214
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "ECU", 
+            "name": "ECUADOR", 
+            "printable_name": "Ecuador",  
+            "iso_3166_1_numeric": 218
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "EGY", 
+            "name": "EGYPT", 
+            "printable_name": "Egypt",  
+            "iso_3166_1_numeric": 818
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "SLV", 
+            "name": "EL SALVADOR", 
+            "printable_name": "El Salvador",  
+            "iso_3166_1_numeric": 222
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "GNQ", 
+            "name": "EQUATORIAL GUINEA", 
+            "printable_name": "Equatorial Guinea",  
+            "iso_3166_1_numeric": 226
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "ERI", 
+            "name": "ERITREA", 
+            "printable_name": "Eritrea",  
+            "iso_3166_1_numeric": 232
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "EST", 
+            "name": "ESTONIA", 
+            "printable_name": "Estonia",  
+            "iso_3166_1_numeric": 233
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "ETH", 
+            "name": "ETHIOPIA", 
+            "printable_name": "Ethiopia",  
+            "iso_3166_1_numeric": 231
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "FLK", 
+            "name": "FALKLAND ISLANDS (MALVINAS)", 
+            "printable_name": "Falkland Islands (Malvinas)",  
+            "iso_3166_1_numeric": 238
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "FRO", 
+            "name": "FAROE ISLANDS", 
+            "printable_name": "Faeroe Islands",  
+            "iso_3166_1_numeric": 234
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "FJI", 
+            "name": "FIJI", 
+            "printable_name": "Fiji",  
+            "iso_3166_1_numeric": 242
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "FIN", 
+            "name": "FINLAND", 
+            "printable_name": "Finland",  
+            "iso_3166_1_numeric": 246
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "FRA", 
+            "name": "FRANCE", 
+            "printable_name": "France",  
+            "iso_3166_1_numeric": 250
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "GUF", 
+            "name": "FRENCH GUIANA", 
+            "printable_name": "French Guiana",  
+            "iso_3166_1_numeric": 254
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "PYF", 
+            "name": "FRENCH POLYNESIA", 
+            "printable_name": "French Polynesia",  
+            "iso_3166_1_numeric": 258
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "ATF", 
+            "name": "FRENCH SOUTHERN TERRITORIES", 
+            "printable_name": "French Southern Territories",  
+            "iso_3166_1_numeric": 260
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "GAB", 
+            "name": "GABON", 
+            "printable_name": "Gabon",  
+            "iso_3166_1_numeric": 266
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "GMB", 
+            "name": "GAMBIA", 
+            "printable_name": "Gambia",  
+            "iso_3166_1_numeric": 270
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "GEO", 
+            "name": "GEORGIA", 
+            "printable_name": "Georgia",  
+            "iso_3166_1_numeric": 268
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "DEU", 
+            "name": "GERMANY", 
+            "printable_name": "Germany",  
+            "iso_3166_1_numeric": 276
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "GHA", 
+            "name": "GHANA", 
+            "printable_name": "Ghana",  
+            "iso_3166_1_numeric": 288
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "GIB", 
+            "name": "GIBRALTAR", 
+            "printable_name": "Gibraltar",  
+            "iso_3166_1_numeric": 292
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "GRC", 
+            "name": "GREECE", 
+            "printable_name": "Greece",  
+            "iso_3166_1_numeric": 300
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "GRL", 
+            "name": "GREENLAND", 
+            "printable_name": "Greenland",  
+            "iso_3166_1_numeric": 304
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "GRD", 
+            "name": "GRENADA", 
+            "printable_name": "Grenada",  
+            "iso_3166_1_numeric": 308
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "GLP", 
+            "name": "GUADELOUPE", 
+            "printable_name": "Guadeloupe",  
+            "iso_3166_1_numeric": 312
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "GUM", 
+            "name": "GUAM", 
+            "printable_name": "Guam",  
+            "iso_3166_1_numeric": 316
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "GTM", 
+            "name": "GUATEMALA", 
+            "printable_name": "Guatemala",  
+            "iso_3166_1_numeric": 320
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "GGY", 
+            "name": "GUERNSEY", 
+            "printable_name": "Guernsey",  
+            "iso_3166_1_numeric": 831
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "GIN", 
+            "name": "GUINEA", 
+            "printable_name": "Guinea",  
+            "iso_3166_1_numeric": 324
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "GNB", 
+            "name": "GUINEA-BISSAU", 
+            "printable_name": "Guinea-Bissau",  
+            "iso_3166_1_numeric": 624
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "GUY", 
+            "name": "GUYANA", 
+            "printable_name": "Guyana",  
+            "iso_3166_1_numeric": 328
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "HTI", 
+            "name": "HAITI", 
+            "printable_name": "Haiti",  
+            "iso_3166_1_numeric": 332
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "HMD", 
+            "name": "HEARD ISLAND AND MCDONALD ISLANDS", 
+            "printable_name": "Heard Island and Mcdonald Islands",  
+            "iso_3166_1_numeric": 334
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "VAT", 
+            "name": "HOLY SEE (VATICAN CITY STATE)", 
+            "printable_name": "Holy See",  
+            "iso_3166_1_numeric": 336
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "HND", 
+            "name": "HONDURAS", 
+            "printable_name": "Honduras",  
+            "iso_3166_1_numeric": 340
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "HKG", 
+            "name": "HONG KONG", 
+            "printable_name": "Hong Kong Special Administrative Region of China",  
+            "iso_3166_1_numeric": 344
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "HUN", 
+            "name": "HUNGARY", 
+            "printable_name": "Hungary",  
+            "iso_3166_1_numeric": 348
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "ISL", 
+            "name": "ICELAND", 
+            "printable_name": "Iceland",  
+            "iso_3166_1_numeric": 352
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "IND", 
+            "name": "INDIA", 
+            "printable_name": "India",  
+            "iso_3166_1_numeric": 356
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "IDN", 
+            "name": "INDONESIA", 
+            "printable_name": "Indonesia",  
+            "iso_3166_1_numeric": 360
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "IRN", 
+            "name": "IRAN, ISLAMIC REPUBLIC OF", 
+            "printable_name": "Iran, Islamic Republic of",  
+            "iso_3166_1_numeric": 364
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "IRQ", 
+            "name": "IRAQ", 
+            "printable_name": "Iraq",  
+            "iso_3166_1_numeric": 368
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "IRL", 
+            "name": "IRELAND", 
+            "printable_name": "Ireland",  
+            "iso_3166_1_numeric": 372
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "IMN", 
+            "name": "ISLE OF MAN", 
+            "printable_name": "Isle of Man",  
+            "iso_3166_1_numeric": 833
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "ISR", 
+            "name": "ISRAEL", 
+            "printable_name": "Israel",  
+            "iso_3166_1_numeric": 376
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "ITA", 
+            "name": "ITALY", 
+            "printable_name": "Italy",  
+            "iso_3166_1_numeric": 380
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "JAM", 
+            "name": "JAMAICA", 
+            "printable_name": "Jamaica",  
+            "iso_3166_1_numeric": 388
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "JPN", 
+            "name": "JAPAN", 
+            "printable_name": "Japan",  
+            "iso_3166_1_numeric": 392
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "JEY", 
+            "name": "JERSEY", 
+            "printable_name": "Jersey",  
+            "iso_3166_1_numeric": 832
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "JOR", 
+            "name": "JORDAN", 
+            "printable_name": "Jordan",  
+            "iso_3166_1_numeric": 400
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "KAZ", 
+            "name": "KAZAKHSTAN", 
+            "printable_name": "Kazakhstan",  
+            "iso_3166_1_numeric": 398
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "KEN", 
+            "name": "KENYA", 
+            "printable_name": "Kenya",  
+            "iso_3166_1_numeric": 404
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "KIR", 
+            "name": "KIRIBATI", 
+            "printable_name": "Kiribati",  
+            "iso_3166_1_numeric": 296
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "PRK", 
+            "name": "KOREA, DEMOCRATIC PEOPLE'S REPUBLIC OF", 
+            "printable_name": "Democratic People's Republic of Korea",  
+            "iso_3166_1_numeric": 408
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "KOR", 
+            "name": "KOREA, REPUBLIC OF", 
+            "printable_name": "Republic of Korea",  
+            "iso_3166_1_numeric": 410
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "KWT", 
+            "name": "KUWAIT", 
+            "printable_name": "Kuwait",  
+            "iso_3166_1_numeric": 414
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "KGZ", 
+            "name": "KYRGYZSTAN", 
+            "printable_name": "Kyrgyzstan",  
+            "iso_3166_1_numeric": 417
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "LAO", 
+            "name": "LAO PEOPLE'S DEMOCRATIC REPUBLIC", 
+            "printable_name": "Lao People's Democratic Republic",  
+            "iso_3166_1_numeric": 418
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "LVA", 
+            "name": "LATVIA", 
+            "printable_name": "Latvia",  
+            "iso_3166_1_numeric": 428
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "LBN", 
+            "name": "LEBANON", 
+            "printable_name": "Lebanon",  
+            "iso_3166_1_numeric": 422
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "LSO", 
+            "name": "LESOTHO", 
+            "printable_name": "Lesotho",  
+            "iso_3166_1_numeric": 426
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "LBR", 
+            "name": "LIBERIA", 
+            "printable_name": "Liberia",  
+            "iso_3166_1_numeric": 430
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "LBY", 
+            "name": "LIBYAN ARAB JAMAHIRIYA", 
+            "printable_name": "Libyan Arab Jamahiriya",  
+            "iso_3166_1_numeric": 434
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "LIE", 
+            "name": "LIECHTENSTEIN", 
+            "printable_name": "Liechtenstein",  
+            "iso_3166_1_numeric": 438
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "LTU", 
+            "name": "LITHUANIA", 
+            "printable_name": "Lithuania",  
+            "iso_3166_1_numeric": 440
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "LUX", 
+            "name": "LUXEMBOURG", 
+            "printable_name": "Luxembourg",  
+            "iso_3166_1_numeric": 442
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "MAC", 
+            "name": "MACAO", 
+            "printable_name": "Macao Special Administrative Region of China",  
+            "iso_3166_1_numeric": 446
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "MKD", 
+            "name": "MACEDONIA, THE FORMER YUGOSLAV REPUBLIC OF", 
+            "printable_name": "The former Yugoslav Republic of Macedonia",  
+            "iso_3166_1_numeric": 807
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "MDG", 
+            "name": "MADAGASCAR", 
+            "printable_name": "Madagascar",  
+            "iso_3166_1_numeric": 450
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "MWI", 
+            "name": "MALAWI", 
+            "printable_name": "Malawi",  
+            "iso_3166_1_numeric": 454
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "MYS", 
+            "name": "MALAYSIA", 
+            "printable_name": "Malaysia",  
+            "iso_3166_1_numeric": 458
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "MDV", 
+            "name": "MALDIVES", 
+            "printable_name": "Maldives",  
+            "iso_3166_1_numeric": 462
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "MLI", 
+            "name": "MALI", 
+            "printable_name": "Mali",  
+            "iso_3166_1_numeric": 466
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "MLT", 
+            "name": "MALTA", 
+            "printable_name": "Malta",  
+            "iso_3166_1_numeric": 470
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "MHL", 
+            "name": "MARSHALL ISLANDS", 
+            "printable_name": "Marshall Islands",  
+            "iso_3166_1_numeric": 584
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "MTQ", 
+            "name": "MARTINIQUE", 
+            "printable_name": "Martinique",  
+            "iso_3166_1_numeric": 474
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "MRT", 
+            "name": "MAURITANIA", 
+            "printable_name": "Mauritania",  
+            "iso_3166_1_numeric": 478
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "MUS", 
+            "name": "MAURITIUS", 
+            "printable_name": "Mauritius",  
+            "iso_3166_1_numeric": 480
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "MYT", 
+            "name": "MAYOTTE", 
+            "printable_name": "Mayotte",  
+            "iso_3166_1_numeric": 175
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "MEX", 
+            "name": "MEXICO", 
+            "printable_name": "Mexico",  
+            "iso_3166_1_numeric": 484
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "FSM", 
+            "name": "MICRONESIA, FEDERATED STATES OF", 
+            "printable_name": "Micronesia, Federated States of",  
+            "iso_3166_1_numeric": 583
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "MDA", 
+            "name": "MOLDOVA, REPUBLIC OF", 
+            "printable_name": "Republic of Moldova",  
+            "iso_3166_1_numeric": 498
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "MCO", 
+            "name": "MONACO", 
+            "printable_name": "Monaco",  
+            "iso_3166_1_numeric": 492
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "MNG", 
+            "name": "MONGOLIA", 
+            "printable_name": "Mongolia",  
+            "iso_3166_1_numeric": 496
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "MNE", 
+            "name": "MONTENEGRO", 
+            "printable_name": "Montenegro",  
+            "iso_3166_1_numeric": 499
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "MSR", 
+            "name": "MONTSERRAT", 
+            "printable_name": "Montserrat",  
+            "iso_3166_1_numeric": 500
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "MAR", 
+            "name": "MOROCCO", 
+            "printable_name": "Morocco",  
+            "iso_3166_1_numeric": 504
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "MOZ", 
+            "name": "MOZAMBIQUE", 
+            "printable_name": "Mozambique",  
+            "iso_3166_1_numeric": 508
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "MMR", 
+            "name": "MYANMAR", 
+            "printable_name": "Myanmar",  
+            "iso_3166_1_numeric": 104
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "NAM", 
+            "name": "NAMIBIA", 
+            "printable_name": "Namibia",  
+            "iso_3166_1_numeric": 516
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "NRU", 
+            "name": "NAURU", 
+            "printable_name": "Nauru",  
+            "iso_3166_1_numeric": 520
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "NPL", 
+            "name": "NEPAL", 
+            "printable_name": "Nepal",  
+            "iso_3166_1_numeric": 524
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "NLD", 
+            "name": "NETHERLANDS", 
+            "printable_name": "Netherlands",  
+            "iso_3166_1_numeric": 528
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "ANT", 
+            "name": "NETHERLANDS ANTILLES", 
+            "printable_name": "Netherlands Antilles",  
+            "iso_3166_1_numeric": 530
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "NCL", 
+            "name": "NEW CALEDONIA", 
+            "printable_name": "New Caledonia",  
+            "iso_3166_1_numeric": 540
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "NZL", 
+            "name": "NEW ZEALAND", 
+            "printable_name": "New Zealand",  
+            "iso_3166_1_numeric": 554
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "NIC", 
+            "name": "NICARAGUA", 
+            "printable_name": "Nicaragua",  
+            "iso_3166_1_numeric": 558
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "NER", 
+            "name": "NIGER", 
+            "printable_name": "Niger",  
+            "iso_3166_1_numeric": 562
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "NGA", 
+            "name": "NIGERIA", 
+            "printable_name": "Nigeria",  
+            "iso_3166_1_numeric": 566
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "NIU", 
+            "name": "NIUE", 
+            "printable_name": "Niue",  
+            "iso_3166_1_numeric": 570
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "NFK", 
+            "name": "NORFOLK ISLAND", 
+            "printable_name": "Norfolk Island",  
+            "iso_3166_1_numeric": 574
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "MNP", 
+            "name": "NORTHERN MARIANA ISLANDS", 
+            "printable_name": "Northern Mariana Islands",  
+            "iso_3166_1_numeric": 580
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "NOR", 
+            "name": "NORWAY", 
+            "printable_name": "Norway",  
+            "iso_3166_1_numeric": 578
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "OMN", 
+            "name": "OMAN", 
+            "printable_name": "Oman",  
+            "iso_3166_1_numeric": 512
+        }
+    }, 
+    {
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "PAK", 
+            "name": "PAKISTAN", 
+            "printable_name": "Pakistan",  
+            "iso_3166_1_numeric": 586
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "PLW", 
+            "name": "PALAU", 
+            "printable_name": "Palau",  
+            "iso_3166_1_numeric": 585
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "PSE", 
+            "name": "PALESTINIAN TERRITORY, OCCUPIED", 
+            "printable_name": "Occupied Palestinian Territory",  
+            "iso_3166_1_numeric": 275
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "PAN", 
+            "name": "PANAMA", 
+            "printable_name": "Panama",  
+            "iso_3166_1_numeric": 591
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "PNG", 
+            "name": "PAPUA NEW GUINEA", 
+            "printable_name": "Papua New Guinea",  
+            "iso_3166_1_numeric": 598
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "PRY", 
+            "name": "PARAGUAY", 
+            "printable_name": "Paraguay",  
+            "iso_3166_1_numeric": 600
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "PER", 
+            "name": "PERU", 
+            "printable_name": "Peru",  
+            "iso_3166_1_numeric": 604
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "PHL", 
+            "name": "PHILIPPINES", 
+            "printable_name": "Philippines",  
+            "iso_3166_1_numeric": 608
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "PCN", 
+            "name": "PITCAIRN", 
+            "printable_name": "Pitcairn",  
+            "iso_3166_1_numeric": 612
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "POL", 
+            "name": "POLAND", 
+            "printable_name": "Poland",  
+            "iso_3166_1_numeric": 616
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "PRT", 
+            "name": "PORTUGAL", 
+            "printable_name": "Portugal",  
+            "iso_3166_1_numeric": 620
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "PRI", 
+            "name": "PUERTO RICO", 
+            "printable_name": "Puerto Rico",  
+            "iso_3166_1_numeric": 630
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "QAT", 
+            "name": "QATAR", 
+            "printable_name": "Qatar",  
+            "iso_3166_1_numeric": 634
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "REU", 
+            "name": "REUNION", 
+            "printable_name": "R\u00e9union",  
+            "iso_3166_1_numeric": 638
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "ROU", 
+            "name": "ROMANIA", 
+            "printable_name": "Romania",  
+            "iso_3166_1_numeric": 642
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "RUS", 
+            "name": "RUSSIAN FEDERATION", 
+            "printable_name": "Russian Federation",  
+            "iso_3166_1_numeric": 643
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "RWA", 
+            "name": "RWANDA", 
+            "printable_name": "Rwanda",  
+            "iso_3166_1_numeric": 646
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "SHN", 
+            "name": "SAINT HELENA", 
+            "printable_name": "Saint Helena",  
+            "iso_3166_1_numeric": 654
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "KNA", 
+            "name": "SAINT KITTS AND NEVIS", 
+            "printable_name": "Saint Kitts and Nevis",  
+            "iso_3166_1_numeric": 659
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "LCA", 
+            "name": "SAINT LUCIA", 
+            "printable_name": "Saint Lucia",  
+            "iso_3166_1_numeric": 662
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "SPM", 
+            "name": "SAINT PIERRE AND MIQUELON", 
+            "printable_name": "Saint Pierre and Miquelon",  
+            "iso_3166_1_numeric": 666
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "VCT", 
+            "name": "SAINT VINCENT AND THE GRENADINES", 
+            "printable_name": "Saint Vincent and the Grenadines",  
+            "iso_3166_1_numeric": 670
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "WSM", 
+            "name": "SAMOA", 
+            "printable_name": "Samoa",  
+            "iso_3166_1_numeric": 882
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "SMR", 
+            "name": "SAN MARINO", 
+            "printable_name": "San Marino",  
+            "iso_3166_1_numeric": 674
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "STP", 
+            "name": "SAO TOME AND PRINCIPE", 
+            "printable_name": "Sao Tome and Principe",  
+            "iso_3166_1_numeric": 678
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "SAU", 
+            "name": "SAUDI ARABIA", 
+            "printable_name": "Saudi Arabia",  
+            "iso_3166_1_numeric": 682
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "SEN", 
+            "name": "SENEGAL", 
+            "printable_name": "Senegal",  
+            "iso_3166_1_numeric": 686
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "SRB", 
+            "name": "SERBIA", 
+            "printable_name": "Serbia",  
+            "iso_3166_1_numeric": 688
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "SYC", 
+            "name": "SEYCHELLES", 
+            "printable_name": "Seychelles",  
+            "iso_3166_1_numeric": 690
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "SLE", 
+            "name": "SIERRA LEONE", 
+            "printable_name": "Sierra Leone",  
+            "iso_3166_1_numeric": 694
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "SGP", 
+            "name": "SINGAPORE", 
+            "printable_name": "Singapore",  
+            "iso_3166_1_numeric": 702
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "SVK", 
+            "name": "SLOVAKIA", 
+            "printable_name": "Slovakia",  
+            "iso_3166_1_numeric": 703
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "SVN", 
+            "name": "SLOVENIA", 
+            "printable_name": "Slovenia",  
+            "iso_3166_1_numeric": 705
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "SLB", 
+            "name": "SOLOMON ISLANDS", 
+            "printable_name": "Solomon Islands",  
+            "iso_3166_1_numeric": 90
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "SOM", 
+            "name": "SOMALIA", 
+            "printable_name": "Somalia",  
+            "iso_3166_1_numeric": 706
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "ZAF", 
+            "name": "SOUTH AFRICA", 
+            "printable_name": "South Africa",  
+            "iso_3166_1_numeric": 710
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "SGS", 
+            "name": "SOUTH GEORGIA AND THE SOUTH SANDWICH ISLANDS", 
+            "printable_name": "South Georgia and the South Sandwich Islands",  
+            "iso_3166_1_numeric": 239
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "ESP", 
+            "name": "SPAIN", 
+            "printable_name": "Spain",  
+            "iso_3166_1_numeric": 724
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "LKA", 
+            "name": "SRI LANKA", 
+            "printable_name": "Sri Lanka",  
+            "iso_3166_1_numeric": 144
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "SDN", 
+            "name": "SUDAN", 
+            "printable_name": "Sudan",  
+            "iso_3166_1_numeric": 736
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "SUR", 
+            "name": "SURINAME", 
+            "printable_name": "Suriname",  
+            "iso_3166_1_numeric": 740
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "SJM", 
+            "name": "SVALBARD AND JAN MAYEN", 
+            "printable_name": "Svalbard and Jan Mayen Islands",  
+            "iso_3166_1_numeric": 744
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "SWZ", 
+            "name": "SWAZILAND", 
+            "printable_name": "Swaziland",  
+            "iso_3166_1_numeric": 748
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "SWE", 
+            "name": "SWEDEN", 
+            "printable_name": "Sweden",  
+            "iso_3166_1_numeric": 752
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "CHE", 
+            "name": "SWITZERLAND", 
+            "printable_name": "Switzerland",  
+            "iso_3166_1_numeric": 756
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "SYR", 
+            "name": "SYRIAN ARAB REPUBLIC", 
+            "printable_name": "Syrian Arab Republic",  
+            "iso_3166_1_numeric": 760
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "TWN", 
+            "name": "TAIWAN, PROVINCE OF CHINA", 
+            "printable_name": "Taiwan, Province of China",  
+            "iso_3166_1_numeric": 158
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "TJK", 
+            "name": "TAJIKISTAN", 
+            "printable_name": "Tajikistan",  
+            "iso_3166_1_numeric": 762
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "TZA", 
+            "name": "TANZANIA, UNITED REPUBLIC OF", 
+            "printable_name": "United Republic of Tanzania",  
+            "iso_3166_1_numeric": 834
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "THA", 
+            "name": "THAILAND", 
+            "printable_name": "Thailand",  
+            "iso_3166_1_numeric": 764
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "TLS", 
+            "name": "TIMOR-LESTE", 
+            "printable_name": "Timor-Leste",  
+            "iso_3166_1_numeric": 626
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "TGO", 
+            "name": "TOGO", 
+            "printable_name": "Togo",  
+            "iso_3166_1_numeric": 768
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "TKL", 
+            "name": "TOKELAU", 
+            "printable_name": "Tokelau",  
+            "iso_3166_1_numeric": 772
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "TON", 
+            "name": "TONGA", 
+            "printable_name": "Tonga",  
+            "iso_3166_1_numeric": 776
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "TTO", 
+            "name": "TRINIDAD AND TOBAGO", 
+            "printable_name": "Trinidad and Tobago",  
+            "iso_3166_1_numeric": 780
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "TUN", 
+            "name": "TUNISIA", 
+            "printable_name": "Tunisia",  
+            "iso_3166_1_numeric": 788
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "TUR", 
+            "name": "TURKEY", 
+            "printable_name": "Turkey",  
+            "iso_3166_1_numeric": 792
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "TKM", 
+            "name": "TURKMENISTAN", 
+            "printable_name": "Turkmenistan",  
+            "iso_3166_1_numeric": 795
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "TCA", 
+            "name": "TURKS AND CAICOS ISLANDS", 
+            "printable_name": "Turks and Caicos Islands",  
+            "iso_3166_1_numeric": 796
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "TUV", 
+            "name": "TUVALU", 
+            "printable_name": "Tuvalu",  
+            "iso_3166_1_numeric": 798
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "UGA", 
+            "name": "UGANDA", 
+            "printable_name": "Uganda",  
+            "iso_3166_1_numeric": 800
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "UKR", 
+            "name": "UKRAINE", 
+            "printable_name": "Ukraine",  
+            "iso_3166_1_numeric": 804
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "ARE", 
+            "name": "UNITED ARAB EMIRATES", 
+            "printable_name": "The United Arab Emirates", 
+            "iso_3166_1_numeric": 784
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "USA", 
+            "name": "UNITED STATES", 
+            "printable_name": "The United States of America", 
+            "iso_3166_1_numeric": 840
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "UMI", 
+            "name": "UNITED STATES MINOR OUTLYING ISLANDS", 
+            "printable_name": "The United States Minor Outlying Islands", 
+            "iso_3166_1_numeric": 581
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "URY", 
+            "name": "URUGUAY", 
+            "printable_name": "Uruguay",  
+            "iso_3166_1_numeric": 858
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "UZB", 
+            "name": "UZBEKISTAN", 
+            "printable_name": "Uzbekistan",  
+            "iso_3166_1_numeric": 860
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "VUT", 
+            "name": "VANUATU", 
+            "printable_name": "Vanuatu",  
+            "iso_3166_1_numeric": 548
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "VEN", 
+            "name": "VENEZUELA", 
+            "printable_name": "Venezuela (Bolivarian Republic of)",  
+            "iso_3166_1_numeric": 862
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "VNM", 
+            "name": "VIET NAM", 
+            "printable_name": "Viet Nam",  
+            "iso_3166_1_numeric": 704
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "VGB", 
+            "name": "VIRGIN ISLANDS, BRITISH", 
+            "printable_name": "British Virgin Islands",  
+            "iso_3166_1_numeric": 92
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "VIR", 
+            "name": "VIRGIN ISLANDS, U.S.", 
+            "printable_name": "United States Virgin Islands",  
+            "iso_3166_1_numeric": 850
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "WLF", 
+            "name": "WALLIS AND FUTUNA", 
+            "printable_name": "Wallis and Futuna Islands",  
+            "iso_3166_1_numeric": 876
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "ESH", 
+            "name": "WESTERN SAHARA", 
+            "printable_name": "Western Sahara",  
+            "iso_3166_1_numeric": 732
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "YEM", 
+            "name": "YEMEN", 
+            "printable_name": "Yemen",  
+            "iso_3166_1_numeric": 887
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "ZMB", 
+            "name": "ZAMBIA", 
+            "printable_name": "Zambia",  
+            "iso_3166_1_numeric": 894
+        }
+    }, 
+    {
+     
+        "model": "swoosh_app.country", 
+        "fields": {
+            "code": "ZWE", 
+            "name": "ZIMBABWE", 
+            "printable_name": "Zimbabwe",  
+            "iso_3166_1_numeric": 716
+        }
+    }
+]

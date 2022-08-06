@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+<div class="container">
+    
+    <div class="row" style="margin-top: 50px; margin-bottom: 50px;">
+        {% if request.user.role_id|lower == 'admin' %}
+            <h2 style="margin-bottom: 50px; padding-left: 0; margin-left: 0;">Most active cutomers: </h2>
+
+
+            {% if today %}
+            <h4 style="margin-left:0; padding-left:0; text-align: center;"><strong>Today</strong></h4><hr>
+                    {% for key, value in today.items %}
+                        <div id="bestCustomer_contianer">
+                            <div id="a">
+                                <strong><p style="font-size: 1rem; letter-spacing: 1px;"> {{key.first_name | capfirst}} {{key.last_name | capfirst}} ---- {{key.email}}</p></strong>
+                            </div>
+                            <div id="b">
+                                <strong><p> Total spent: {{value}}$</p></strong>
+                            </div>
+                        </div>                
+                    {% endfor %}
+            {% endif %}
+
+            {% if week %}
+            <h4 style="margin-left:0; padding-left:0; text-align: center;"><strong>This week</strong></h4><hr>
+                    {% for key, value in week.items %}
+                        <div id="bestCustomer_contianer">
+                            <div id="a">
+                                <strong><p style="font-size: 1rem; letter-spacing: 1px;"> {{key.first_name | capfirst}} {{key.last_name | capfirst}} ---- {{key.email}}</p></strong>
+                            </div>
+                            <div id="b">
+                                <strong><p> Total spent: {{value}}$</p></strong>
+                            </div>
+                        </div>                
+                    {% endfor %}
+            {% endif %}
+
+            {% if month %}
+            <h4 style="margin-left:0; padding-left:0; text-align: center;"><strong>This month</strong></h4><hr>
+                    {% for key, value in month.items %}
+                        <div id="bestCustomer_contianer">
+                            <div id="a">
+                                <strong><p style="font-size: 1rem; letter-spacing: 1px;"> {{key.first_name | capfirst}} {{key.last_name | capfirst}} ---- {{key.email}}</p></strong>
+                            </div>
+                            <div id="b">
+                                <strong><p> Total spent: {{value}}$</p></strong>
+                            </div>
+                        </div>
+                    {% endfor %}
+            {% endif %}
+
+
+    {% else %}
+    <p>No permission</p>
+    {% endif %}
+    </div>
+       
+</div>
+
+{% endblock %}

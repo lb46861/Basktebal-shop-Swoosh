@@ -183,10 +183,51 @@ def bestbuy(request):
     return render(request, 'products/bestbuy.html', data)
 
 
-def bestcustomer(request):
 
-    pass
 
+def best_customers_range(start, end):
+    users = User.objects.all()
+    bestCustomerList = {}
+
+    for user in users:
+        total_spent = 0
+        orders = Order.objects.filter(status='paid', customer_id = user)
+        for order in orders:
+            orderdatetime = order.date
+            orderdate = orderdatetime.date()
+            if orderdate >= start and orderdate <= end:
+                total_spent += order.get_total
+
+        if total_spent > 0:
+            bestCustomerList[user] = total_spent
+
+    bestCustomerList = dict(sorted(bestCustomerList.items(), key=lambda item: item[1], reverse = True)[:5])
+
+    return bestCustomerList
+
+
+@login_required(login_url='login')
+def bestcustomers(request):
+    _, lastday = calendar.monthrange(timezone.now().year, timezone.now().month)
+    first_day_month = datetime.date(timezone.now().year, timezone.now().month, 1)
+    last_day_month = datetime.date(timezone.now().year, timezone.now().month, lastday)
+    current_day = datetime.date(timezone.now().year, timezone.now().month, timezone.now().day)
+
+    date = datetime.date.today()
+    start_week = date - datetime.timedelta(date.weekday())
+    end_week = start_week + datetime.timedelta(6)
+
+    thisweek = best_customers_range(start_week, end_week)
+    thismonth = best_customers_range(first_day_month, last_day_month)
+    thisday = best_customers_range(current_day, current_day)
+
+    data = {
+        'today': thisday,
+        'week': thisweek,
+        'month': thismonth
+    }
+
+    return render(request, 'admin/bestcutomers.html', data)
 
 def productlist(request):
     info = ''
@@ -376,6 +417,15 @@ def profile(request):
 
     else:
         form = UpdateUserForm(instance=request.user)
+
+
+    #form.instance.country = form.cleaned_data['country '])
+    #form.instance.city = form.cleaned_data['city'])
+    #form.instance.postal_code = form.cleaned_data['postal_code'])
+    # country_obj = Country.objects.get_or_create(cname=form.instance.country)
+    # city_obj = Country.objects.get_or_create(city=form.instance.country, country = form.instance.country, postal_code=form.instance.postal_code)
+    #form.instance.city = City.objects.get_or_create(country = cname=form.cleaned_data['country_name'])
+
     data = {
         'msg': msg,
         'form': form

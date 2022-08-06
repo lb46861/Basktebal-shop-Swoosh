@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import User, Role, Order, Team, Category, Brand, Product, OrderDetails, Size, ProductDetail
+from .models import *
 from django.contrib.auth.admin import UserAdmin
 
 # Register your models here.
@@ -7,10 +7,10 @@ from django.contrib.auth.admin import UserAdmin
 @admin.register(User)
 class UserAdmin(UserAdmin):
     fieldsets = UserAdmin.fieldsets + (
-        ('None', {'fields':('role_id', 'address', 'phone', 'city', 'country', 'postal_code')}),
+        ('None', {'fields':('role_id', 'address', 'phone', 'city', 'country', 'postal_code', 'location')}),
     )
     add_fieldsets = UserAdmin.add_fieldsets + (
-        ('None', {'fields':('role_id', 'address', 'phone', 'city', 'country', 'postal_code')}),
+        ('None', {'fields':('role_id', 'address', 'phone', 'city', 'country', 'postal_code', 'location')}),
     )
     
 admin.site.register(Role)
@@ -22,3 +22,6 @@ admin.site.register(Product)
 admin.site.register(Size)
 admin.site.register(OrderDetails)
 admin.site.register(ProductDetail)
+admin.site.register(Country)
+admin.site.register(City)
+admin.site.register(Address)

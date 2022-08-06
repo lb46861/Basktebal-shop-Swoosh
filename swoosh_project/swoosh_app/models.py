@@ -3,19 +3,44 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser
 from phonenumber_field.modelfields import PhoneNumberField
 import decimal
+from django_countries.fields import CountryField
+
 
 class Role(models.Model):
     role = models.CharField(max_length=50, null=True)
     def __str__(self):
-        return self.role     
+        return self.role   
+
+
+class Country(models.Model):
+    code = models.CharField(max_length=100, null=True, blank=True)
+    name = models.CharField(max_length=100, null=True, blank=True)
+    printable_name = models.CharField(max_length=100, null=True, blank=True)
+    iso_3166_1_numeric = models.CharField(max_length=100, null=True, blank=True)
+    def __str__(self):
+        return self.name
+
+
+class City(models.Model):
+    grad = models.CharField(max_length=100, null=True, blank=True)
+    drzava = models.ForeignKey(Country, on_delete=models.CASCADE, null=True, blank=True)
+
+class Address(models.Model):
+    address = models.CharField(max_length=100, null=True, blank=True)
+    postal_code = models.CharField(max_length=100, null=True, blank=False)
+    city = models.ForeignKey(City, on_delete=models.CASCADE, null=True, blank=True)
+
+   
 
 class User(AbstractUser):
     role_id = models.ForeignKey(Role, on_delete=models.CASCADE, null=True, default=1)
     address = models.CharField(max_length=50, null=True, blank=False)
     phone = PhoneNumberField(null=True, blank=True, unique=False)
     city = models.CharField(max_length=100, null=True, blank=False)
-    country = models.CharField(max_length=100, null=True, blank=False)
+    country = CountryField(null=True, blank=False)
     postal_code = models.CharField(max_length=100, null=True, blank=False)
+    location = models.ForeignKey(Address, on_delete=models.CASCADE, null=True, blank=True)
+    
     
 
 class Order(models.Model):

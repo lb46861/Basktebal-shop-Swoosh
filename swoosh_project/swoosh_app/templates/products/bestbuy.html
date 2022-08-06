@@ -29,7 +29,7 @@
                 {% endfor %}
         {% endif %}
 
-        {% if today %}
+        {% if week %}
         <h3 style="margin-left:0; padding-left:0; text-align: center; margin-bottom: 20px;"><strong>This week</strong></h3><hr style="margin-bottom: 50px;">
             {% for key, value in week.items %}
                 <div class="row spaceBetween">
@@ -51,7 +51,7 @@
         {% endif %}
 
 
-        {% if today %}
+        {% if month %}
             <h3 style="margin-left:0; padding-left:0; text-align: center; margin-bottom: 20px;"><strong>This month</strong></h3><hr style="margin-bottom: 50px;">
                 {% for key, value in month.items %}
                     <div class="row spaceBetween">
