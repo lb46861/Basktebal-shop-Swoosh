@@ -403,20 +403,43 @@ def allorders(request):
 
 @login_required(login_url='login')
 def profile(request):
+    
+    countries = Country.objects.all()
     msg = ''
     if request.method == 'POST':
         action = request.POST['action']
         if action == 'save':
+            city = request.POST['country']
+            if city.isdigit():
+                cityObj = City.objects.get(id=city)
+            else:
+                cityObj = City.objects.get(id=request.user.location.city.id)
+            postalform = PostalForm(request.POST)
+            addressform = AddressForm(request.POST)
+            address = addressform['address'].value()
+            postalcode = postalform['postal_code'].value()
+            postalObj = Postal.objects.get_or_create(postal_code=postalcode)[0]
+            address = Address.objects.get_or_create(city = cityObj, postal_code=postalObj, address=address)[0]
+            request.user.location=address
+            request.user.save()
             form = UpdateUserForm(request.POST, instance=request.user)
-            if form.is_valid():
+            postalform = PostalForm(request.POST, instance=request.user)
+            addressform = AddressForm(request.POST, instance=request.user)
+            if form.is_valid() and postalform.is_valid() and addressform.is_valid():
                 form.save()
+                postalform.save()
+                addressform.save()
                 msg = 'Your profile is updated successfully!'
 
         elif action == 'reset':
             form = UpdateUserForm(instance=request.user)
+            postalform = PostalForm(instance=request.user)
+            addressform = AddressForm(instance=request.user)
 
     else:
         form = UpdateUserForm(instance=request.user)
+        postalform = PostalForm(instance=request.user.location.postal_code)
+        addressform = AddressForm(instance=request.user.location)
 
 
     #form.instance.country = form.cleaned_data['country '])
@@ -428,12 +451,26 @@ def profile(request):
 
     data = {
         'msg': msg,
-        'form': form
+        'form': form,
+        'countries': countries,
+        'postalform':postalform,
+        'addressform': addressform
     }
 
     return render(request, 'account/myaccount.html', data)
 
 
+
+def cities(request):
+    country = request.GET.get('country')
+    if country.isdigit():
+        cities = City.objects.filter(country=country)
+    else:
+        cities = None
+    data ={
+        'cities': cities
+    }
+    return render(request, 'account/cities.html', data)
 
 class ChangePasswordView(SuccessMessageMixin, PasswordChangeView):
     template_name = 'account/change_password.html'
@@ -458,6 +495,7 @@ def success_payment(request, session_id):
         order.number = number
         order.date = timezone.now().replace(microsecond=0)
         order.status = 'paid'
+        order.address = request.user.location
         order.save()
         data =  {
             'order': order,

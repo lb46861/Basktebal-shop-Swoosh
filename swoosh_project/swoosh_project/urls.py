@@ -43,6 +43,7 @@ urlpatterns = [
     path('editproductdetail/', views.editproductdetail, name='editproductdetail'),
     path('bestbuy/', views.bestbuy, name='bestbuy'),
     path('bestcustomers/', views.bestcustomers, name='bestcustomers'),
+    path('cityfilter/', views.cities, name='cityfilter'),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

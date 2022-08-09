@@ -1,0 +1,10 @@
+<select class="custom-select mb-4" name="country">
+    
+    {% for city in cities %}
+        {% if city == request.user.location.city %}
+            <option value="{{city.id}}" selected>{{city.name}}</option>
+        {% else %}
+            <option value="{{city.id}}">{{city.name}}</option>
+        {% endif %}
+    {% endfor %}
+</select>

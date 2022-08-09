@@ -39,10 +39,10 @@
                     <hr>
                 <p style="letter-spacing: 1px; margin-bottom: 50px;"><strong>Total order price: {{order.get_total}} $<br>
                            Order status:</strong> {{order.status}}<br>
-                           <strong> Address to deliver: </strong>{{request.user.address}}<br>
-                           <strong> City: </strong>{{request.user.city}}<br>
-                           <strong> Country: </strong>{{request.user.country}}<br>
-                           <strong> Postal code: </strong>{{request.user.postal_code}}<br>
+                           <strong> Address to deliver: </strong>{{order.address.address}}<br>
+                           <strong> City: </strong>{{order.address.city}}<br>
+                           <strong> Country: </strong>{{order.address.city.country}}<br>
+                           <strong> Postal code: </strong>{{order.address.postal_code}}<br>
                 </p>
 
         {% else %}

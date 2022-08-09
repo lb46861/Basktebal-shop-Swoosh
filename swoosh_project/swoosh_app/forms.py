@@ -15,12 +15,12 @@ class UserForm(UserCreationForm):
 
   class Meta:
     model = User
-    fields = ['username', 'first_name', 'last_name', 'email', 'address', 'phone', 'city', 'country', 'postal_code', 'password1', 'password2']
+    fields = ['username', 'first_name', 'last_name', 'email', 'password1', 'password2']
 
 class UpdateUserForm(ModelForm):
   class Meta:
         model = User
-        fields = ['username', 'first_name', 'last_name', 'email', 'address', 'phone', 'city', 'country', 'postal_code', 'location']
+        fields = ['username', 'first_name', 'last_name', 'email',  'phone' ]
 
 
 class ProductForm(ModelForm):
@@ -38,3 +38,19 @@ class OrderForm(ModelForm):
   class Meta:
     model = Order
     fields = '__all__'
+
+class AddressForm(ModelForm):
+  class Meta:
+    model = City
+    fields =  ('country', 'name')
+
+class PostalForm(ModelForm):
+  class Meta:
+    model = Postal
+    fields =  ('postal_code',)
+
+
+class AddressForm(ModelForm):
+  class Meta:
+    model = Address
+    fields =  ('address',)
