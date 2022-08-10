@@ -21,19 +21,41 @@ import calendar
 stripe.api_key = settings.STRIPE_SECRET_KEY
 
 
-def register(request):   
+def register(request):
+    countries = Country.objects.all()  
     if request.method == 'POST':
+        city = request.POST['country']
+        cityObj = City.objects.get(id=city)
         form = UserForm(request.POST)
-        if form.is_valid():
+        postalform = PostalForm(request.POST)
+        addressform = AddressForm(request.POST)
+        address = addressform['address'].value()
+        postalcode = postalform['postal_code'].value()
+        postalObj = Postal.objects.get_or_create(postal_code=postalcode)[0]
+        address = Address.objects.get_or_create(city = cityObj, postal_code=postalObj, address=address)[0]
+        if form.is_valid() and postalform.is_valid() and addressform.is_valid():
             form.save()
+            user = User.objects.get(email=request.POST['email'])
+            user.location=address
+            user.save()
             return redirect('login')
     else:
         if request.user.is_authenticated:
             return redirect('productlist')
         else:
-            form = UserForm()
+            form = UpdateUserForm()
+            postalform = PostalForm()
+            addressform = AddressForm()
+
+
+    data = {
+        'form': form,
+        'countries': countries,
+        'postalform':postalform,
+        'addressform': addressform
+    }
     
-    return render(request, 'account/register.html', {'form':form})
+    return render(request, 'account/register.html', data)
 
 
 def deleteproduct(product):
@@ -433,8 +455,8 @@ def profile(request):
 
         elif action == 'reset':
             form = UpdateUserForm(instance=request.user)
-            postalform = PostalForm(instance=request.user)
-            addressform = AddressForm(instance=request.user)
+            postalform = PostalForm(instance=request.user.location.postal_code)
+            addressform = AddressForm(instance=request.user.location)
 
     else:
         form = UpdateUserForm(instance=request.user)
@@ -478,7 +500,6 @@ class ChangePasswordView(SuccessMessageMixin, PasswordChangeView):
     success_url = reverse_lazy('myaccount')
 
 
-mycheckout_session = ''
 def success_payment(request, session_id):
     my_session = stripe.checkout.Session.retrieve(session_id)
     if(my_session):
@@ -533,6 +554,4 @@ class CreateCheckoutSessionView(View):
             success_url= MY_DOMAIN + "/success/{CHECKOUT_SESSION_ID}/",
             cancel_url = MY_DOMAIN + '/cart/',
         )
-        global mycheckout_session
-        mycheckout_session = checkout_session.id
         return redirect(checkout_session.url, code=303)

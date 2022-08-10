@@ -24,7 +24,7 @@ class City(models.Model):
         return self.name
 
 class Postal(models.Model):
-    postal_code = models.CharField(max_length=100, null=True, blank=True)
+    postal_code = models.CharField(max_length=100, null=True, blank=False)
     def __str__(self):
         return self.postal_code
 
@@ -32,7 +32,7 @@ class Postal(models.Model):
 class Address(models.Model):
     city = models.ForeignKey(City, on_delete=models.CASCADE, null=True, blank=True)
     postal_code = models.ForeignKey(Postal, on_delete=models.CASCADE, null=True, blank=True)
-    address = models.CharField(max_length=100, null=True, blank=True)
+    address = models.CharField(max_length=100, null=True, blank=False)
     def __str__(self):
             return self.address
 
@@ -40,7 +40,7 @@ class Address(models.Model):
 
 class User(AbstractUser):
     role_id = models.ForeignKey(Role, on_delete=models.CASCADE, null=True, default=1)
-    phone = PhoneNumberField(null=True, blank=True, unique=False)
+    phone = PhoneNumberField(null=True, blank=False, unique=False)
     location = models.ForeignKey(Address, on_delete=models.SET_NULL, null=True, blank=True)
     
     

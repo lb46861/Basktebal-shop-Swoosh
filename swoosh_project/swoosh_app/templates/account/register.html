@@ -23,6 +23,66 @@
         
       </p>
   {% endfor %}
+
+  <span style="margin-left: 10px; font-family: 'DM Sans', sans-serif;">Country: <br></span> 
+  <select class="custom-select mb-4" style="margin-left: 10px;"
+  name="country" 
+  hx-get="{% url 'cityfilter' %}" 
+  hx-trigger="change, load"
+  hx-target="#cities">
+      
+ 
+
+      {% for country in countries %}
+          {% if country == request.user.location.city.country %}
+              <option value="{{country.id}}" selected>{{country.name}}</option> 
+          {% else %}
+              <option value="{{country.id}}">{{country.name}}</option>
+          {% endif %}
+      {% endfor %}
+  
+  </select>   
+  
+   <br>
+  <span style="margin-left: 10px; font-family: 'DM Sans', sans-serif;">City:<br></span>
+  <div id = "cities" style="margin-left: 10px;">
+      {% include 'account/cities.html' %}
+  </div>
+
+
+  {% for field in postalform %}
+  <p>
+      {{ field.label_tag }}<br>
+      {{ field }}
+              
+      {% for error in field.errors %}
+          <div class="alert alert-danger">
+              <p style="color:rgb(196, 79, 44)"><strong>{{ error }}</strong></p>
+          </div>
+      {% endfor %}                           
+  </p>
+  {% endfor %}
+
+
+  {% for field in addressform %}
+  <p>
+      {{ field.label_tag }}<br>
+      {{ field }}
+              
+      {% for error in field.errors %}
+          <div class="alert alert-danger">
+              <p style="color:rgb(196, 79, 44)"><strong>{{ error }}</strong></p>
+          </div>
+      {% endfor %}                           
+  </p>
+  {% endfor %}
+
+
+
+
+
+
+
   {% csrf_token %}
     <input class='mysubmit' type="submit" value="Register" />
   </form>

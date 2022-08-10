@@ -13,11 +13,26 @@ class UserForm(UserCreationForm):
           raise forms.ValidationError("User with this email already exists.")
       return self.cleaned_data['email']
 
+
+  def __init__(self, *args, **kwargs):
+      super(UserForm, self).__init__(*args, **kwargs)
+      # Making location required
+      self.fields['first_name'].required = True
+      self.fields['last_name'].required = True
+
   class Meta:
     model = User
-    fields = ['username', 'first_name', 'last_name', 'email', 'password1', 'password2']
+    fields = ['username', 'first_name', 'last_name', 'email', 'phone', 'password1', 'password2']
 
 class UpdateUserForm(ModelForm):
+  
+  def __init__(self, *args, **kwargs):
+      super(UpdateUserForm, self).__init__(*args, **kwargs)
+      self.fields['username'].required = True
+      self.fields['first_name'].required = True
+      self.fields['last_name'].required = True
+      self.fields['email'].required = True
+
   class Meta:
         model = User
         fields = ['username', 'first_name', 'last_name', 'email',  'phone' ]

@@ -99,10 +99,15 @@
             <p>
 
             <button type="submit" name="action" value="save" class="btn btn-dark btn-m">Save Changes</button> &nbsp;
-            <button type="submit" name="action" value="reset" class="btn btn-dark btn-m">Reset</button>
+           
             </p>
         </form>
-
+        <form method="post">
+            {% csrf_token %}
+            <p><button type="submit" name="action" value="reset" class="btn btn-dark btn-m">Reset</button></p>
+            {% csrf_token %}
+        </form>
+        
         <p><a href="{% url 'changepassword' %}">Change Password</a></p>
     </div>
 </div>
