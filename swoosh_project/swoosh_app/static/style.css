@@ -3,6 +3,8 @@
     padding: 0;
 }
 
+
+
 h1, h2, h3, h4, h5, p{
     font-family: 'DM Sans', sans-serif;
     padding: 10px;
@@ -24,16 +26,19 @@ input[type=number],
 input[type=text],
 input[type=password],
 input[type=email],
-input[type=select],
 input[type=tel] {
     padding: 5px 5px;
     border: 1px solid #aaa;
     border-radius: 5px;
 }
+
+
+
 select {
     padding:5px;
     border: 1px solid #aaa;
     border-radius: 5px;
+
 }
 
 .similiarProducts{

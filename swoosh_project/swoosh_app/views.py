@@ -136,28 +136,6 @@ def addproduct(request):
 
 
 
-# Duplicated function, fixed to place everything in 1
-# def best_buy_week():
-#     products = Product.objects.all()
-#     thisweek = {}
-#     date = datetime.date.today()
-#     start_week = date - datetime.timedelta(date.weekday())
-#     end_week = start_week + datetime.timedelta(6)
-
-#     for product in products:
-#         num_of_prod = 0
-#         orderedItems = OrderDetails.objects.filter(status='paid', product__product_id = product)
-#         for order in orderedItems:
-#             orderdatetime = order.date
-#             orderdate = orderdatetime.date()
-#             if orderdate >= start_week and orderdate <= end_week:
-#                     num_of_prod += order.quantity 
-
-#         if num_of_prod > 0:
-#             thisweek[product] = num_of_prod
-#     return thisweek
-
-
 def best_buy_range(start, end):
 
     products = Product.objects.all()
