@@ -7,11 +7,17 @@
 
         <h2 style="margin-bottom: 30px; margin-top: 50px; margin-left: 0; padding-left: 0;">Your cart: </h2>
        
-            {% if stock %}
-            <div id='success-alert' class="alert alert-warning alert-dismissible fade show" role="alert">
-                {{stock}}
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
+            {% if stock == 'No more products left in stock!' %}
+                <div id='success-alert' class="alert alert-danger alert-dismissible fade show" role="alert">
+                    {{stock}}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+
+            {% elif stock %}
+                <div id='success-alert' class="alert alert-warning alert-dismissible fade show" role="alert">
+                    {{stock}}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
             {% endif %}
 
         {% if cartItems %}

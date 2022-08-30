@@ -370,7 +370,7 @@ def order(request, id):
 @login_required(login_url='login')
 def myorders(request):
     customer = request.user
-    orders = Order.objects.filter(customer_id = customer, status = 'paid')
+    orders = Order.objects.filter(customer_id = customer, status = 'paid').order_by('-date')
     data ={
         'orders': orders,
     }
@@ -385,7 +385,7 @@ def deleteorder(order):
 @login_required(login_url='login')
 def allorders(request):
     info = ''
-    orders = Order.objects.filter(status = 'paid')
+    orders = Order.objects.filter(status = 'paid').order_by('-date')
     if request.method == 'POST':
         order = request.POST['order']
         action = request.POST['action']

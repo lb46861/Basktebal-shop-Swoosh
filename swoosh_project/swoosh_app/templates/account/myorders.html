@@ -6,7 +6,7 @@
         <h2 style="margin-bottom: 30px; margin-top: 50px; margin-left: 0; padding-left: 0;">Your orders: </h2>
 
         {% if orders %}
-            {% for order in orders reversed %}
+            {% for order in orders %}
                 <div class="row" style="margin-bottom:30px">
                     <div class="col-sm-2">
                         <strong>Order ID :</strong> {{order.id}}
