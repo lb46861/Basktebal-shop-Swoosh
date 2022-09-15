@@ -153,7 +153,7 @@ def best_buy_range(start, end):
         if num_of_prod > 0:
             bestBuyList[product] = num_of_prod
 
-    bestBuyList = dict(sorted(bestBuyList.items(), key=lambda item: item[1], reverse = True)[:3])
+    bestBuyList = dict(sorted(bestBuyList.items(), key=lambda item: item[1], reverse = True)[:5])
 
     return bestBuyList
 
@@ -161,10 +161,12 @@ def best_buy_range(start, end):
 
 @login_required(login_url='login')
 def bestbuy(request):
+    
+    current_day = datetime.date(timezone.now().year, timezone.now().month, timezone.now().day)
+    
     _, lastday = calendar.monthrange(timezone.now().year, timezone.now().month)
     first_day_month = datetime.date(timezone.now().year, timezone.now().month, 1)
     last_day_month = datetime.date(timezone.now().year, timezone.now().month, lastday)
-    current_day = datetime.date(timezone.now().year, timezone.now().month, timezone.now().day)
 
     date = datetime.date.today()
     start_week = date - datetime.timedelta(date.weekday())
@@ -441,13 +443,6 @@ def profile(request):
         postalform = PostalForm(instance=request.user.location.postal_code)
         addressform = AddressForm(instance=request.user.location)
 
-
-    #form.instance.country = form.cleaned_data['country '])
-    #form.instance.city = form.cleaned_data['city'])
-    #form.instance.postal_code = form.cleaned_data['postal_code'])
-    # country_obj = Country.objects.get_or_create(cname=form.instance.country)
-    # city_obj = Country.objects.get_or_create(city=form.instance.country, country = form.instance.country, postal_code=form.instance.postal_code)
-    #form.instance.city = City.objects.get_or_create(country = cname=form.cleaned_data['country_name'])
 
     data = {
         'msg': msg,

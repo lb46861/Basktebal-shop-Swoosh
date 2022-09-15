@@ -4,7 +4,7 @@
 
 <div class="container">
     
-    <div class="row" style="margin-top: 50px;">
+    <div class="row" style="margin-top: 50px; margin-bottom: 100px;">
         <h2 style="margin-bottom: 50px; padding-left: 0; margin-left: 0;">Most sold products: </h2>
 
 
@@ -13,7 +13,7 @@
                 {% for key, value in today.items %}
                     <div class="row spaceBetween">
                         <div class="col-sm-3">
-                            <a href="{% url 'productdetail' key.id %}"><img  src="{{ key.image.url }}" style="max-width: 60%;" alt={{key.name}}></a>
+                            <a href="{% url 'productdetail' key.id %}"><img  src="{{ key.image.url }}" style="max-width: 50%;" alt={{key.name}}></a>
                         </div>
                         <div class="col-sm-6">
                             <p style="font-weight: 600; margin-top:60px; font-size: 1.2rem; text-align: center;">
@@ -30,11 +30,11 @@
         {% endif %}
 
         {% if week %}
-        <h3 style="margin-left:0; padding-left:0; text-align: center; margin-bottom: 20px;"><strong>This week</strong></h3><hr style="margin-bottom: 50px;">
+        <h3 style="margin-left:0; padding-left:0; text-align: center; margin-bottom: 20px;"><strong>Current week</strong></h3><hr style="margin-bottom: 50px;">
             {% for key, value in week.items %}
                 <div class="row spaceBetween">
                     <div class="col-sm-3">
-                        <a href="{% url 'productdetail' key.id %}"><img  src="{{ key.image.url }}" style="max-width: 60%;" alt={{key.name}}></a>
+                        <a href="{% url 'productdetail' key.id %}"><img  src="{{ key.image.url }}" style="max-width: 50%;" alt={{key.name}}></a>
                     </div>
                     <div class="col-sm-6">
                         <p style="font-weight: 600; margin-top:60px; font-size: 1.2rem; text-align: center;">
@@ -52,11 +52,11 @@
 
 
         {% if month %}
-            <h3 style="margin-left:0; padding-left:0; text-align: center; margin-bottom: 20px;"><strong>This month</strong></h3><hr style="margin-bottom: 50px;">
+            <h3 style="margin-left:0; padding-left:0; text-align: center; margin-bottom: 20px;"><strong>Current month</strong></h3><hr style="margin-bottom: 50px;">
                 {% for key, value in month.items %}
                     <div class="row spaceBetween">
                         <div class="col-sm-3">
-                            <a href="{% url 'productdetail' key.id %}"><img  src="{{ key.image.url }}" style="max-width: 60%;" alt={{key.name}}></a>
+                            <a href="{% url 'productdetail' key.id %}"><img  src="{{ key.image.url }}" style="max-width: 50%;" alt={{key.name}}></a>
                         </div>
                         <div class="col-sm-6">
                             <p style="font-weight: 600; margin-top:60px; font-size: 1.2rem; text-align: center;">
